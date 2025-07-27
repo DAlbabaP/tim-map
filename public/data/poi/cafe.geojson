@@ -1,0 +1,46 @@
+{
+  "type": "FeatureCollection",
+  "name": "cafe",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Столовая первого корпуса",
+        "working_hours": "ПН-ПТ: 09:00-17:00",
+        "payment_methods": ["Наличные", " Карта"," СБП"],
+        "id": 0,
+        "image": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.55698821773882,
+          55.83219577518533
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "",
+        "working_hours": "",
+        "payment_methods": [],
+        "id": 3,
+        "image": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.5545669284265,
+          55.833096261445654
+        ]
+      }
+    }
+  ]
+}

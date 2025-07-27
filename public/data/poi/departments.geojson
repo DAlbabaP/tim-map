@@ -1,0 +1,1391 @@
+{
+  "type": "FeatureCollection",
+  "name": "departments",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 0,
+        "name": "Кафедра бухгалтерского учета, финансов и налогообложения",
+        "description": "Кафедра бухгалтерского учета, финансов и налогообложения была создана 6 апреля 1920 года.",
+        "head_of_department": "Постникова Любовь Валерьевна",
+        "rooms": "203",
+        "phone": "+7 (499) 976-05-95",
+        "email": "kaf_buhuchet@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-ekonomiki-i-upravleniia-apk/kafedra-bukhgalterskogo-ucheta-finansov-i-nalogooblozheniia",
+        "image": "",
+        "head_photo": "image/deanarys/economics/departments/department_head_1513249410_postnikova.jpg",
+        "building": "2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.55651770513792,
+          55.83359340298348
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 1,
+        "name": "Кафедра политической экономии и мировой экономики",
+        "description": "Это одна из старейших кафедр. Она создана в год образования Петровской земледельческой и лесной академии в 1865 г. На протяжении всей своей многолетней истории кафедра хранит и приумножает сложившиеся традиции, развивает образовательные программы и научные направления в области политической экономии, заложенные известными учеными, основателями кафедры: профессорами М.П. Щепкиным, А.П. Людоговским, И.И. Иванюковым, Н.А. Карышевым, В.Я. Железновым и другими.",
+        "head_of_department": "Заведующий кафедрой",
+        "rooms": "413",
+        "phone": "+7 (499) 976-28-21",
+        "email": "k.politeconom@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-ekonomiki-i-upravleniia-apk/kafedra-politicheskoi-ekonomii-i-mirovoi-ekonomiki",
+        "image": "",
+        "head_photo": "",
+        "building": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.55723474547499,
+          55.832661183391025
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 2,
+        "name": "Кафедра управления",
+        "description": "Сотрудники кафедры имеют большой опыт работы по мировым образовательным стандартам, первыми в системе аграрного образования России открыли двухступенчатую систему подготовки. В 1996 году был открыт бакалавриат, а в 1999 году был сделан первый набор в магистратуру. С 2001 года начат выпуск магистров. Всего выпущено более 200 магистров. Опыт организации магистратуры распространен не только в российские вузы, но и в другие страны СНГ (Казахстан, Украина, Армения), создана международная российско-европейская сеть аграрных вузов, осуществляющая подготовку магистров на единой методологической основе.",
+        "head_of_department": "Кошелев Валерий Михайлович",
+        "rooms": "",
+        "phone": "+7 (499) 976-14-50",
+        "email": "vmkoshelev@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-ekonomiki-i-upravleniia-apk/kafedra-upravleniia",
+        "image": "",
+        "head_photo": "image/deanarys/economics/departments/department_head_1521532946_koshelev.jpg",
+        "building": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.557274267383335,
+          55.832613620567784
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 3,
+        "name": "Кафедра высшей математики",
+        "description": "В настоящее время кафедра продолжает совершенствовать основные и специальные курсы, готовить методические разработки. Кафедра ведет преподавание по дисциплинам естественно-научного блока и работает, в основном, со студентами I-II курсов всех факультетов университета.",
+        "head_of_department": "Прудкий Александр Сергеевич",
+        "rooms": "",
+        "phone": "+7 (499) 976-08-93",
+        "email": "matematika@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-ekonomiki-i-upravleniia-apk/kafedra-vysshei-matematiki",
+        "image": "",
+        "head_photo": "image/deanarys/economics/departments/department_head_1688468709_prudkiy.jpg",
+        "building": "12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.55514573031974,
+          55.832841921588845
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 4,
+        "name": "Кафедра прикладной информатики",
+        "description": "Кафедра прикладной информатики как самостоятельное учебно-научное подразделение была создана 30 апреля 2004 года. Она выделилась из состава кафедры «Экономической кибернетики», образованной в 1967 г. и в течение многих лет возглавляемой доктором экономических наук, член-корреспондентом РАСХН, профессором Гатаулиным Ахияром Мугиновичем, затем – доцентом, кандидатом экономических наук Карпузовой Верой Ивановной, после которой кафедру экономической кибернетики возглавил кандидат экономических наук профессор Филатов Анатолий Иванович.",
+        "head_of_department": "Заведующий кафедрой",
+        "rooms": "",
+        "phone": "+7 (499) 977-86-64",
+        "email": "prin9778664@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-ekonomiki-i-upravleniia-apk/kafedra-prikladnoi-informatiki",
+        "image": "",
+        "head_photo": "",
+        "building": "15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.557347665213115,
+          55.8325787411271
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 5,
+        "name": "Кафедра философии",
+        "description": "История кафедры неразрывно связана с историей становления и развития экономического факультета. 6 ноября 1922 года в академии был введен курс теории марксизма-ленинизма и организована новая кафедра – диалектического и исторического материализма, функционирующая под разными названиями все эти годы.",
+        "head_of_department": "Мамедов Азер Агабалаевич",
+        "rooms": "",
+        "phone": "+7 (499) 976-22-17",
+        "email": null,
+        "website": "https://www.timacad.ru/education/instituty/institut-ekonomiki-i-upravleniia-apk/kafedra-filosofii",
+        "image": "",
+        "head_photo": "image/deanarys/economics/departments/department_head_1519650725_mamedov.jpg",
+        "building": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.55740977106908,
+          55.83252166561124
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 6,
+        "name": "Кафедра иностранных и русского языков",
+        "description": "Кафедра иностранных и русского языков, созданная 1 апреля 2019 года по приказу Ректора в соответствии с решением Ученого Совета университета (академии) от 27 ноября 2018 г., является правопреемником кафедры иностранных языков, образованной в 2014 году при  объединении трех вузов  - Российского государственного аграрного университета  - МСХА имени К.А.Тимирязева  (РГАУ-МСХА имени К.А. Тимирязева),  Московского государственного агроинженерного университета имени В.П. Горячкина (МГАУ) и  Московского государственного университета природообустройства (МГУП) (приказ Министра сельского хозяйства №15у об утверждении Изменений и дополнений №1 в Устав ФГБОУ ВО РГАУ-МСХА имени К.А. Тимирязева),  и кафедры русского языка и культуры речи.",
+        "head_of_department": "Зайцев Алексей Анатольевич",
+        "rooms": "",
+        "phone": "+7 (499) 976-23-13",
+        "email": "forlang@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-ekonomiki-i-upravleniia-apk/kafedra-inostrannykh-i-russkogo-iazykov",
+        "image": "",
+        "head_photo": "image/deanarys/economics/departments/department_head_1523277373_zaytsev.jpg",
+        "building": "12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.555061040516144,
+          55.832822896554944
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 7,
+        "name": "Кафедра связей с общественностью, речевой коммуникации и туризма",
+        "description": "Кафедра связей с общественностью, речевой коммуникации и туризма была образована в 2008 году.",
+        "head_of_department": "Евграфова Людмила Владимировна",
+        "rooms": "506",
+        "phone": "+7 (499) 976-08-04",
+        "email": "lyudmilaevgrafova@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-ekonomiki-i-upravleniia-apk/kafedra-sviazei-s-obshchestvennostiu-rechevoi-kommunikatsii-i-turizma",
+        "image": "",
+        "head_photo": "image/deanarys/economics/departments/department_head_1523277373_zaytsev.jpg",
+        "building": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.55747187692505,
+          55.832461419142504
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 8,
+        "name": "Кафедра экономики и организации производства",
+        "description": "Кафедра сельскохозяйственной экономии (впоследствии кафедра экономики сельского хозяйства, экономики и кооперации, экономики, а с 2024 г. – экономики и организации производства) является одной из старейших. Она была создана в начале 1866-1867 учебного года, в первые годы организации Петровской земледельческой и лесной академии.",
+        "head_of_department": "Быков Александр Александрович",
+        "rooms": "",
+        "phone": "+7 (499) 976-08-35",
+        "email": "a.bykov@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-ekonomiki-i-upravleniia-apk/kafedra-ekonomiki-i-organizatsii-proizvodstva",
+        "image": "",
+        "head_photo": "image/deanarys/economics/departments/department_head_1716191811_bukov.png",
+        "building": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.55754527475483,
+          55.832407514328224
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 9,
+        "name": "Кафедра истории",
+        "description": "Кафедра истории осуществляет подготовку бакалавров по всему спектру реализуемых в университете образовательных программ, а также работает с магистрами, обучающимися в РГАУ-МСХА. 100% профессорско-преподавательского состава кафедры – доктора и кандидаты наук.",
+        "head_of_department": "Оришев Александр Борисович",
+        "rooms": "",
+        "phone": "+7 (499) 976-18-52",
+        "email": "orishev@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-ekonomiki-i-upravleniia-apk/kafedra-istorii",
+        "image": "",
+        "head_photo": "image/deanarys/economics/departments/department_head_1515754916_orishev.jpg",
+        "building": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.5571500556714,
+          55.832626303993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 10,
+        "name": "Кафедра статистики и кибернетики",
+        "description": "В 2020 году кафедре статистики и кибернетики исполнилось 100 лет! Кафедра бережно хранит традиции и развивает научную и педагогическую школу, основанную известными учеными, с мировым именем: А.Ф. Фортунатовым, В.С. Немчиновым, С.С. Сергеевым и др.",
+        "head_of_department": "Уколова Анна Владимировна",
+        "rooms": "",
+        "phone": "+7 (499) 976-12-53",
+        "email": "statmsha@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-ekonomiki-i-upravleniia-apk/kafedra-statistiki-i-kibernetiki",
+        "image": "",
+        "head_photo": "image/deanarys/economics/departments/department_head_1513250342_ukolova.jpg",
+        "building": "2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.556416077373605,
+          55.8335743783172
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 11,
+        "name": "Кафедра экономической безопасности и права",
+        "description": "Кафедра осуществляет общее руководство подготовкой экономистов  по специальности 38.05.01 «Экономическая безопасность», специализация «Экономико-правовое обеспечение экономической безопасности».",
+        "head_of_department": "Гупалова Татьяна Николаевна",
+        "rooms": "",
+        "phone": "+7 (499) 976-39-41",
+        "email": "audit@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-ekonomiki-i-upravleniia-apk/kafedra-ekonomicheskoi-bezopasnosti-i-prava",
+        "image": "",
+        "head_photo": "image/deanarys/economics/departments/department_head_1663585318_gupalova.jpg",
+        "building": "2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.5563088036224,
+          55.83354901208102
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 12,
+        "name": "Кафедра педагогики и психологии профессионального образования",
+        "description": "Кафедра педагогики и психологии профессионального образования организована в 1934 году под руководством И.А. Каирова как базовая выпускающая кафедра педагогического отделения Тимирязевской академии.",
+        "head_of_department": "Кубрушко Петр Федорович",
+        "rooms": "",
+        "phone": "+7 (499) 976-38-76",
+        "email": "kafpppo@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-ekonomiki-i-upravleniia-apk/kafedra-pedagogiki-i-psikhologii-professionalnogo-obrazovaniia",
+        "image": "",
+        "head_photo": "image/deanarys/economics/departments/department_head_1513164670_kubrushkopf.jpg",
+        "building": "27"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.55030711954121,
+          55.83433852842514
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 13,
+        "name": "Кафедра агрономической, биологической химии и радиологии",
+        "description": "В сентябре 2010 года в РГАУ-МСХА имени К.А.Тимирязева были объединены две кафедры факультета Почвоведения, агрохимии и экологии: кафедра агрономической и биологической химии и кафедра радиологии. Эти кафедры были созданы в академии в разное время и представляли различные направления фундаментального естествознания его практического применения. Тем не менее, радиологическое направление в ТСХА первоначально возникло на базе кафедры агрохимии при участии учёных других кафедр. Таким образом, обе кафедры связаны общей историей их становления и развития.",
+        "head_of_department": "Налиухин Алексей Николаевич",
+        "rooms": "",
+        "phone": "+7 (499) 976-16-60",
+        "email": "agbihim@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-agrobiotekhnologii/kafedra-agronomicheskoi-biologicheskoi-khimii-i-radiologii",
+        "image": "",
+        "head_photo": "image/deanarys/agrobiology/departments/department_head_1655794142_image001.png",
+        "building": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.548534279652685,
+          55.83445584474696
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 14,
+        "name": "Кафедра земледелия и методики опытного дела",
+        "description": "Крупные научные разработки: организация специализированных севооборотов, ресурсосберегающие технологии обработки почвы, защита почв от эрозии, интегрированные методы защиты от сорняков – удостоены золотых и серебряных медалей ВДНХ и ВВЦ и рекомендованы для освоения в производство.",
+        "head_of_department": "Заверткин Игорь Анатольевич",
+        "rooms": "318",
+        "phone": "+7 (499) 976-16-42",
+        "email": "izavyortkin@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-agrobiotekhnologii/kafedra-zemledeliia-i-metodiki-opytnogo-dela",
+        "image": "",
+        "head_photo": "image/deanarys/agrobiology/departments/department_head_1685948930_zavertkin.jpg",
+        "building": "3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.55323738674547,
+          55.83418633375051
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 15,
+        "name": "Кафедра растениеводства и луговых экосистем",
+        "description": "Растениеводство как учебная и научная дисциплина зародилось первоначально в составе кафедры земледелия. В 1876 г. по решению Совета академии был выделен из неё курс частного земледелия, получивший впоследствии название растениеводства. Основоположник отечественного научного растениеводства, первый заведующий кафедрой растениеводства И.А. Стебут. С его именем связаны все передовые течения в русском сельском хозяйстве на протяжении полувека.",
+        "head_of_department": "Заведующий кафедрой",
+        "rooms": "216",
+        "phone": "+7 (499) 976-13-75",
+        "email": "plant@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-agrobiotekhnologii/kafedra-rastenievodstva-i-lugovykh-ekosistem",
+        "image": "",
+        "head_photo": "image/deanarys/agrobiology/departments/department_head_1522171604_vk_t.png",
+        "building": "3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.553316430562155,
+          55.834195845935106
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 16,
+        "name": "Кафедра биотехнологии",
+        "description": "Первая в сельскохозяйственных вузах страны кафедра сельскохозяйственной биотехнологии была организована в Московской сельскохозяйственной академии им. К.А. Тимирязева в 1986 году по инициативе академика РАН В.С. Шевелухи. Настоятельная потребность в создании кафедры была вызвана быстрым развитием биотехнологии в различных областях народного хозяйства, в том числе, и в АПК. Новейшие научные, экономические и технологические задачи в АПК вызвали необходимость в организации подготовки специалистов с высшим образованием в области современной биотехнологии, владеющих методами и технологиями клеточной и генной инженерии растений и животных.",
+        "head_of_department": "Вертикова Елена Александровна",
+        "rooms": "",
+        "phone": "+7 (499) 976-40-72",
+        "email": "vertikova@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-agrobiotekhnologii/kafedra-biotekhnologii",
+        "image": "",
+        "head_photo": "image/deanarys/agrobiology/departments/department_head_1726474737_Vertikova.jpg",
+        "building": "3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.55340112036575,
+          55.83421169957098
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 17,
+        "name": "Кафедра метеорологии и климатологии",
+        "description": "Вас интересуют вопросы о погоде? Вы хотите больше знать о среде своего места обитания? Вам непонятно что происходит сейчас на планете с климатом в результате глобального потепления, и каковы могут быть его последствия? Приходите к нам! Ответы на эти и многие другие подобные вопросы, а также знания о закономерностях воздействия всего многообразия метеорологических и климатических факторов на жизнь фито- и зооценозов в полной мере даются на кафедре метеорологии и климатологии института агронобиотехнологии РГАУ-МСХА имени К.А. Тимирязева, которой исполняется в эти дни 90 лет!",
+        "head_of_department": "Асауляк Ирина Федоровна",
+        "rooms": "",
+        "phone": "+7 (499) 977-73-55",
+        "email": "meteo@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-agrobiotekhnologii/kafedra-meteorologii-i-klimatologii",
+        "image": "",
+        "head_photo": "image/deanarys/agrobiology/departments/department_head_1732277079_1663329281_2.jpg",
+        "building": "18"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.55487891332914,
+          55.83637157317626
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 18,
+        "name": "Кафедра физиологии растений",
+        "description": "Организатор и первый директор (1865-1869) Петровской земледельческой и лесной академии профессор Н.И. Железнов не только положил начало отечественным исследованиям в этой области, но и, по отзывам современников, блестяще  читал избранные  главы физиологии растений. Впоследствии его сменил профессор ботаники и физиологии растений Н.Н. Кауфман.",
+        "head_of_department": "Ларикова Юлия Сергеевна",
+        "rooms": "324",
+        "phone": "+7 (499) 976-20-54",
+        "email": "plantphys@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-agrobiotekhnologii/kafedra-fiziologii-rastenii",
+        "image": "",
+        "head_photo": "image/deanarys/agrobiology/departments/department_head_1520246700_mail.png",
+        "building": "12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.55497070472565,
+          55.83280704235292
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 19,
+        "name": "Кафедра генетики, селекции и семеноводства",
+        "description": "История кафедры генетики, селекции и семеноводства, как самостоятельного подразделения, восходит к 1903 году, когда при Московском сельскохозяйственном институте была организована первая в России специализированная Селекционная станция, а уже в 1923 г. была организована кафедра селекции и семеноводства, которую возглавил профессор Сергей Иванович Жегалов.",
+        "head_of_department": "Вертикова Елена Александровна",
+        "rooms": "",
+        "phone": "+7 (499) 976-12-72",
+        "email": "selection@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-agrobiotekhnologii/kafedra-genetiki-selektsii-i-semenovodstva",
+        "image": "",
+        "head_photo": "image/deanarys/agrobiology/departments/department_head_1692714095_1617283823_Vertikova.jpg",
+        "building": "37"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.555529657429354,
+          55.8373093760032
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 20,
+        "name": "Кафедра микробиологии и иммунологии",
+        "description": "История кафедры микробиологии уходит корнями в историю кафедры физиологии растений и бактериологии, куда в 1894 году по рекомендации проф. Д.Н.Прянишникова на должность профессора был приглашен молодой, но уже с мировым именем ученый Николай Николаевич Худяков (1866-1927). До вступления в должность Н.Н.Худяков обучался в докторантуре у знаменитого профессора Лейпцигского Ботанического института Пфеффера и выполнил ряд классических работ по дыханию и брожению микроорганизмов. В 1893 г. им была защищена докторская диссертация по интрамолекулярному дыханию.",
+        "head_of_department": "Козлов Андрей Владимирович",
+        "rooms": "",
+        "phone": "+9 (499) 976-09-66",
+        "email": "a.kozlov@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-agrobiotekhnologii/kafedra-mikrobiologii-i-immunologii",
+        "image": "",
+        "head_photo": "image/deanarys/agrobiology/departments/department_head_1663921243_Kozlov.jpg",
+        "building": "9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.551645218437955,
+          55.83305436716851
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 21,
+        "name": "Кафедра химии",
+        "description": "В каждом учебном году на кафедре Химии проходят обучение 3500 - 3800 студентов. В соответствии с учебными планами и стандартами ФГОС ВО на кафедре читаются лекции и проводятся лабораторно-практические занятия с бакалаврами 1-3 курсов разных институтов: Агробиотехнологий; Зоотехнии и биологии; Садоводства и ландшафтной архитектуры; Технологического и др. Магистрами институтов: Агробиотехнологий; Мелиорации, водного хозяйства и строительства имени А.Н. Костякова; Зоотехнии и биологии.",
+        "head_of_department": "Дмитревская Инна Ивановна",
+        "rooms": "219",
+        "phone": "+7 (499) 976-32-16",
+        "email": "himija@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-agrobiotekhnologii/kafedra-khimii",
+        "image": "",
+        "head_photo": "image/deanarys/agrobiology/departments/department_head_1696425510_dmitrevskaya.jpeg",
+        "building": "6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.55187670390111,
+          55.83380901521748
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 22,
+        "name": "Кафедра защиты растений (Department of Plant Protection)",
+        "description": null,
+        "head_of_department": "Джалилов Февзи Сеид",
+        "rooms": "",
+        "phone": "+7 (499) 976-02-20",
+        "email": "kf_zrast@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-agrobiotekhnologii/kafedra-zashchity-rastenii-department-of-plant-protection",
+        "image": "",
+        "head_photo": "image/deanarys/agrobiology/departments/department_head_1685454798_dzhalilov.jpg",
+        "building": "12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.554886014922054,
+          55.832791188144434
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 23,
+        "name": "Кафедра почвоведения, геологии и ландшафтоведения",
+        "description": "Кафедра ведет большую учебно-методическую работу, участвуя в составлении новых планов и программ по курсу почвоведения для студентов сельскохозяйственных вузов, постоянно совершенствуются методики проведения занятий со студентами.",
+        "head_of_department": "Ефимов Олег Евгеньевич",
+        "rooms": "",
+        "phone": "+7 (499) 976-08-97",
+        "email": "soillab@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-agrobiotekhnologii/kafedra-pochvovedeniia-geologii-i-landshaftovedeniia",
+        "image": "",
+        "head_photo": "image/deanarys/agrobiology/departments/department_head_1701418416_efimov.jpg",
+        "building": "17"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.54842700590148,
+          55.83442730837694
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 24,
+        "name": "Кафедра аквакультуры и пчеловодства",
+        "description": "Кафедра Аквакультуры и пчеловодства создана решением Ученого Совета университета и Приказа ректора № 154 от 25 декабря 2013 г. Руководит созданной кафедрой почетный работник высшего профессионального образования РФ, доктор биологических наук, профессор Маннапов Альфир Габдуллович.",
+        "head_of_department": "Бубунец Эдуард Владимирович",
+        "rooms": "",
+        "phone": "+7 (499) 976-33-67",
+        "email": "akvipch@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-zootekhnii-i-biologii/kafedra-akvakultury-i-pchelovodstva",
+        "image": "",
+        "head_photo": "image/deanarys/zootech/departments/department_head_1737965002_b_img6388a60c45e481_09745247.jpg",
+        "building": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.54726675559226,
+          55.827293351666135
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 25,
+        "name": "Кафедра ветеринарной медицины",
+        "description": "Профессорско-преподавательский коллектив кафедры ветеринарной медицины осуществляет подготовку студентов (специалитет, бакалавриат, магистратура) по направлениям «Ветеринарно-санитарная экспертиза» , «Зоотехния» , «Биология» , специальности «Ветеринария» , специализации «Технология переработки продуктов животноводства» на факультетах зоотехнии и биологии, технологическом и заочного образования.",
+        "head_of_department": "Федотов Сергей Васильевич",
+        "rooms": "",
+        "phone": "+7 (499) 977-17-82",
+        "email": "s.fedotov@rgaumcxa.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-zootekhnii-i-biologii/kafedra-veterinarnoi-meditsiny",
+        "image": "",
+        "head_photo": "image/deanarys/zootech/departments/department_head_1727958526_fedotov.jpg",
+        "building": "4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.54670356839838,
+          55.827474114809476
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 26,
+        "name": "Кафедра зоологии",
+        "description": "Кафедра зоологии является старейшей в Университете, существуя с первых дней его основания, и, одновременно, обладает самым молодым профессорско-преподавательским составом: на 2024 г. средний возраст сотрудников составляет 37 лет.",
+        "head_of_department": "Кидов Артем Александрович",
+        "rooms": "",
+        "phone": "+7 (499) 977-64-76",
+        "email": null,
+        "website": "https://www.timacad.ru/education/instituty/institut-zootekhnii-i-biologii/kafedra-zoologii",
+        "image": "",
+        "head_photo": "image/deanarys/zootech/departments/department_head_1638183392_kidov.jpg",
+        "building": "16"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.55327549715709,
+          55.83053863578249
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 27,
+        "name": "Кафедра коневодства",
+        "description": "РГАУ–МСХА имени К.А. Тимирязева - ведущий аграрный вуз страны по подготовке специалистов-коневодов, а кафедра коневодства является единственной в стране специализированной кафедрой, готовящей специалистов для отрасли коневодства.",
+        "head_of_department": "Демин Владимир Александрович",
+        "rooms": "",
+        "phone": "+7 (499) 977-92-19",
+        "email": "konevod@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-zootekhnii-i-biologii/kafedra-konevodstva",
+        "image": "",
+        "head_photo": "image/deanarys/zootech/departments/department_head_1662630078_demin.jpg",
+        "building": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.565165945581334,
+          55.83251136030085
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 28,
+        "name": "Кафедра кормления животных",
+        "description": "Кафедра кормления животных была основана в 1930 году.",
+        "head_of_department": "Буряков Николай Петрович",
+        "rooms": "",
+        "phone": "+7 (499) 976-12-62",
+        "email": "n.buryakov@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-zootekhnii-i-biologii/kafedra-kormleniia-zhivotnykh",
+        "image": "",
+        "head_photo": "image/deanarys/zootech/departments/department_head_1519589685_buryakov.jpg",
+        "building": "11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.55135092137048,
+          55.833542274171776
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 29,
+        "name": "Кафедра молочного и мясного скотоводства",
+        "description": "Истоки современной кафедры молочного и мясного скотоводства, ее традиции и основополагающие направления деятельности восходят ко времени образования Петровской земледельческой и лесной академии.",
+        "head_of_department": "Соловьева  Ольга Игнатьевна",
+        "rooms": "",
+        "phone": "+7 (499) 976-40-40",
+        "email": "milk-center@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-zootekhnii-i-biologii/kafedra-molochnogo-i-miasnogo-skotovodstva",
+        "image": "",
+        "head_photo": "image/deanarys/zootech/departments/department_head_1662103095_image001.jpg",
+        "building": "11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.551242941870896,
+          55.833577945442855
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 30,
+        "name": "Кафедра морфологии и ветеринарно-санитарной экспертизы",
+        "description": "Кафедра морфологии и ветеринарно-санитарной экспертизы ведёт свою историю с 1934 года. Именно в этому году был основан зоотехнический факультет (ныне институт зоотехнии и биологии) и кафедра анатомии, как одно из его подразделений.",
+        "head_of_department": "Бачинская Валентина Михайловна",
+        "rooms": "",
+        "phone": "+7 (499) 977-64-52",
+        "email": "morfologia_vetsan@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-zootekhnii-i-biologii/kafedra-morfologii-i-veterinarno-sanitarnoi-ekspertizy",
+        "image": "",
+        "building": "16"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.553211979804395,
+          55.83060284900598
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 31,
+        "name": "Кафедра разведения, генетики и биотехнологии животных",
+        "description": "Истоки кафедры восходят к 1930 году, когда на базе кафедры общего животноводства была образована кафедра генетики и разведения животных под руководством профессора Еллия Анатольевича Богданова. Длительное время кафедры была фактически единственным научным центром страны, развивающим эту новую отрасль знания.",
+        "head_of_department": "Гладких Марианна Юрьевна",
+        "rooms": "",
+        "phone": "+7 (499) 976-34-34",
+        "email": "marianna.gladkikh@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-zootekhnii-i-biologii/kafedra-razvedeniia-genetiki-i-biotekhnologii-zhivotnykh",
+        "image": "",
+        "head_photo": "",
+        "building": "20"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.551649452928125,
+          55.830595714208606
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 32,
+        "name": "Кафедра физиологии, этологии и биохимии животных",
+        "description": "За свою историю кафедра подготовила свыше 100 кандидатов и докторов наук. На кафедре с 2008 года реализуется магистерская программа по направлению 36.04.02 - Зоотехния «Физиолого-биохимический мониторинг здоровья и питания животных».  Выпускники кафедры работают в аналитических и ветеринарных лабораториях, НИИ, учебных заведениях профессионального образования.",
+        "head_of_department": "Вертипрахов Владимир Георгиевич",
+        "rooms": "",
+        "phone": "+7 (499) 976-37-38",
+        "email": "vertiprahov@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-zootekhnii-i-biologii/kafedra-fiziologii-etologii-i-biokhimii-zhivotnykh",
+        "image": "",
+        "head_photo": "image/deanarys/zootech/departments/department_head_1698399372_vertiprahov.jpg",
+        "building": "9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.55159228731071,
+          55.83295726065763
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 33,
+        "name": "Кафедра частной зоотехнии",
+        "description": "На кафедре частной зоотехнии студенты изучают дисциплины по наиболее важным и востребованным отраслям животноводства – овцеводства, свиноводства и птицеводства. Выбрав одно из направлений, студенты имеют возможность обучаться по программам бакалавриата, магистратуры, а затем продолжить обучение в аспирантуре.",
+        "head_of_department": "Иванова Ольга Валерьевна",
+        "rooms": "",
+        "phone": "+7 (499) 977-84-23",
+        "email": "o.v.ivanova@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-zootekhnii-i-biologii/kafedra-chastnoi-zootekhnii",
+        "image": "",
+        "head_photo": "image/deanarys/zootech/departments/department_head_1617963367_ivanova.jpg",
+        "building": "9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.55150971475221,
+          55.83284667784588
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 34,
+        "name": "Кафедра гидравлики, гидрологии и управления водными ресурсами",
+        "description": "Деятельность кафедры гидравлики, гидрологии и управления водными ресурсами ориентирована на политику и достижение целей РГАУ-МСХА имени К.А. Тимирязева в области качества, а также выполнение стандартов и нормативных документов и осуществляется в рамках внутренней и внешней независимой оценки качества образования.",
+        "head_of_department": "Перминов Алексей Васильевич",
+        "rooms": "",
+        "phone": "+7 (499) 976-22-27",
+        "email": "ggirs@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-melioratsii-vodnogo-khoziaistva-i-stroitelstva-imeni-a-n-kostiakova/kafedra-gidravliki-gidrologii-i-upravleniia-vodnymi-resursami",
+        "image": "",
+        "head_photo": "image/deanarys/amelioration/departments/department_head_1634803343_perminov.jpg",
+        "building": "28"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.54990272572905,
+          55.83572172876014
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 35,
+        "name": "Кафедра гидротехнических сооружений",
+        "description": "Кафедра гидротехнических сооружений основана в 1907 г. профессором, доктором технических наук, заслуженным деятелем науки и техники РСФСР Василием Васильевичем Подаревым, возглавлявшим ее до 1936 г.",
+        "head_of_department": "Ханов Нартмир Владимирович",
+        "rooms": "245",
+        "phone": null,
+        "email": "gts@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-melioratsii-vodnogo-khoziaistva-i-stroitelstva-imeni-a-n-kostiakova/kafedra-gidrotekhnicheskikh-sooruzhenii",
+        "image": "",
+        "head_photo": "image/deanarys/amelioration/departments/department_head_1727073581_khanov.jpg",
+        "building": "29"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.547705025325854,
+          55.83799379604415
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 36,
+        "name": "Кафедра землеустройства и лесоводства",
+        "description": "Кафедра «Землеустройства и лесоводства» одна из старейших кафедр Университета. В первом параграфе Устава Петровской земледельческой и лесной академии, основанной 3 декабря 1865 г., записано, что создание академии имеет цель – распространение сведений по сельскому хозяйству и лесоводству.",
+        "head_of_department": "Безбородов Юрий Германович",
+        "rooms": "",
+        "phone": "+7 (499) 977-92-19",
+        "email": "ubezborodov@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-melioratsii-vodnogo-khoziaistva-i-stroitelstva-imeni-a-n-kostiakova/kafedra-zemleustroistva-i-lesovodstva",
+        "image": "",
+        "head_photo": "image/deanarys/amelioration/departments/department_head_1685606632_bezborodov.jpg",
+        "building": "29"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.54780030135489,
+          55.83801876307904
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 37,
+        "name": "Кафедра инженерных конструкций",
+        "description": "Кафедра Инженерных конструкций была организована в ТСХА в 1924 году, выделившись из кафедры «Пути сообщения».",
+        "head_of_department": "Борков Павел Валерьевич",
+        "rooms": "338",
+        "phone": "+7 (499) 976-26-43",
+        "email": "ik@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-melioratsii-vodnogo-khoziaistva-i-stroitelstva-imeni-a-n-kostiakova/kafedra-inzhenernykh-konstruktsii",
+        "image": "",
+        "head_photo": "image/deanarys/amelioration/departments/department_head_1698662301_borkov.jpg",
+        "building": "29"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.547901929119206,
+          55.838050863528906
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 38,
+        "name": "Кафедра организации и технологий гидромелиоративных и строительных работ",
+        "description": null,
+        "head_of_department": "Балабанов Виктор Иванович",
+        "rooms": "",
+        "phone": "+7 (499) 976-22-22",
+        "email": "mop@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-melioratsii-vodnogo-khoziaistva-i-stroitelstva-imeni-a-n-kostiakova/kafedra-organizatsii-i-tekhnologii-gidromeliorativnykh-i-stroitelnykh-rabot",
+        "image": "",
+        "head_photo": "image/deanarys/amelioration/departments/department_head_1535023416_balabanov.jpg",
+        "building": "29"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.54802261208932,
+          55.83807939723988
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 39,
+        "name": "Кафедра сельскохозяйственного водоснабжения, водоотведения, насосов и насосных станций",
+        "description": "Деятельность кафедры направлена на реализацию главной цели: подготовка высококвалифицированных специалистов в области водоснабжения; очистки природных вод; санитарно-технического оборудования зданий, канализация и очистка сточных вод; в области насосов, насосных установок и насосных станций, предназначенных для орошения, осушения, водоснабжения, обводнения, водоотведения, водоотлива, так же в области цифровизации систем теплогазоснабжения и вентиляции и т.п.",
+        "head_of_department": "Али Мунзер Сулейман",
+        "rooms": "",
+        "phone": "+7 (499) 976-49-39",
+        "email": "viv@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-melioratsii-vodnogo-khoziaistva-i-stroitelstva-imeni-a-n-kostiakova/kafedra-selskokhoziaistvennogo-vodosnabzheniia-vodootvedeniia-nasosov-i-nasosnykh-stantsii",
+        "image": "",
+        "head_photo": "image/deanarys/amelioration/departments/department_head_1514362979_ali_m.jpg",
+        "building": "29"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.54817505373578,
+          55.8381043642198
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 40,
+        "name": "Кафедра сельскохозяйственного строительства и экспертизы объектов недвижимости",
+        "description": "Кафедра «Сельскохозяйственное строительство и экспертиза объектов недвижимости» организована в 2019 г. в результате объединения двух кафедр:",
+        "head_of_department": "Ткачев Александр Анатольевич",
+        "rooms": "301, 303, 305, 308, 317",
+        "phone": "+7 (499) 977-02-41",
+        "email": "ofseon@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-melioratsii-vodnogo-khoziaistva-i-stroitelstva-imeni-a-n-kostiakova/kafedra-selskokhoziaistvennogo-stroitelstva-i-ekspertizy-obektov-nedvizhimosti",
+        "image": "",
+        "head_photo": "image/deanarys/amelioration/departments/tkachev.png",
+        "building": "29"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.54828938497063,
+          55.838136464599
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 41,
+        "name": "Кафедра сельскохозяйственных мелиораций",
+        "description": "Кафедра сельскохозяйственных мелиораций, лесоводства и землеустройства является одним из перспективных учебно-научных подразделений Российского государственного аграрного университета – МСХА имени К.А. Тимирязева. Кафедра была образована летом 2014 года в результате объединения двух исторических, фундаментальных кафедр - «Мелиорация и геодезия» и «Лесоводство». В настоящее время кафедра является выпускающей по направлениям подготовки (бакалавриат и магистратура): \"Лесное дело\", \"Землеустройство и кадастры\".",
+        "head_of_department": "Дубенок Николай Николаевич",
+        "rooms": "",
+        "phone": "+7 (499) 976-40-25",
+        "email": "ndubenok@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-melioratsii-vodnogo-khoziaistva-i-stroitelstva-imeni-a-n-kostiakova/kafedra-selskokhoziaistvennykh-melioratsii",
+        "image": "",
+        "head_photo": "image/deanarys/amelioration/departments/department_head_1513237425_dubenok.jpg",
+        "building": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.557226276494625,
+          55.83256130139504
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 42,
+        "name": "Кафедра систем автоматизированного проектирования и инженерных расчетов",
+        "description": "Кафедра была создана приказом Министерства сельского хозяйства СССР №135 от 13 июля 1976 года.",
+        "head_of_department": "Гавриловская Надежда Владимировна",
+        "rooms": "346",
+        "phone": "+7 (499) 153-97-66",
+        "email": "gavrilovskayanv@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-melioratsii-vodnogo-khoziaistva-i-stroitelstva-imeni-a-n-kostiakova/kafedra-sistem-avtomatizirovannogo-proektirovaniia-i-inzhenernykh-raschetov",
+        "image": "",
+        "head_photo": "",
+        "building": "29"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.548429123146555,
+          55.83815429813154
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 43,
+        "name": "Кафедра техносферной безопасности",
+        "description": "Кафедра Техносферной безопасности является выпускающей, ведет образовательную и научную деятельность по направлению 20.03.01 Техносферная безопасность, по направленностям:",
+        "head_of_department": "Заведующий кафедрой",
+        "rooms": "321",
+        "phone": "+7 (499) 976-49-31",
+        "email": "vborulko@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-melioratsii-vodnogo-khoziaistva-i-stroitelstva-imeni-a-n-kostiakova/kafedra-tekhnosfernoi-bezopasnosti",
+        "image": "",
+        "head_photo": "",
+        "building": "28"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.54985191184689,
+          55.835778799579536
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 44,
+        "name": "Кафедра физики",
+        "description": "Кафедра физики академии имени К.А. Тимирязева имеет многогранную историю возникновения и развития. Истоки ее зарождения ведут к Петровской академии, к периоду создания основ технологических процессов производства и переработки сельскохозяйственной продукции. Изначально физика преподавалась на кафедре метеорологии. Интегрирование физических знаний в производственный процесс со временем становилось неотъемлемой составляющей прогресса, что увеличивало роль дисциплины в процессе подготовки специалистов аграрной отрасли и привело к созданию в академии самостоятельной кафедры физики.",
+        "head_of_department": "Коноплин Николай Александрович",
+        "rooms": "338",
+        "phone": "+7 (499) 976-21-89",
+        "email": "fiz@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-melioratsii-vodnogo-khoziaistva-i-stroitelstva-imeni-a-n-kostiakova/kafedra-fiziki",
+        "image": "",
+        "head_photo": "image/deanarys/amelioration/departments/department_head_1519122313_konoplin.JPG",
+        "building": "28"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.54982015317055,
+          55.83583943723336
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 45,
+        "name": "Кафедра экологии",
+        "description": "На кафедре экологии ведется подготовка по трем уровням Программ высшего образования:",
+        "head_of_department": "Тихонова Мария Васильевна",
+        "rooms": "406",
+        "phone": "+7 (499) 977-04-86",
+        "email": "ecolog@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-melioratsii-vodnogo-khoziaistva-i-stroitelstva-imeni-a-n-kostiakova/kafedra-ekologii",
+        "image": "",
+        "head_photo": "image/deanarys/amelioration/departments/department_head_1726126962_tihonova.jpg",
+        "building": "29"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.548562509587214,
+          55.83820066527789
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 46,
+        "name": "Кафедра автоматизации и роботизации технологических процессов имени академика И.Ф. Бородина",
+        "description": "Миссия кафедры – подготовка бакалавров, специалистов, магистров, аспирантов востребованных на рынке труда АПК России, обладающих современными знаниями и общекультурными и профессиональными компетенциями в области инженерного обеспечения энергетического профиля.",
+        "head_of_department": "Шабаев Евгений Адимович",
+        "rooms": "203",
+        "phone": "+7 (928) 769-38-93",
+        "email": "energo-air@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-mekhaniki-i-energetiki-imeni-v-p-goriachkina/kafedra-avtomatizatsii-i-robotizatsii-tekhnologicheskikh-protsessov-imeni-akademika-i-f-borodina",
+        "image": "",
+        "head_photo": "image/deanarys/mechanic/departments/shabaev.jpg",
+        "building": "24"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.55686383060081,
+          55.83405883557223
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 47,
+        "name": "Кафедра тракторов и автомобилей",
+        "description": "6 ноября 2018 года приказом ректора кафедра «Тракторы и автомобили» была присоединена к кафедре «Автомобильный транспорт». А приказом ректора от 23 апреля 2019 года № 226 кафедру автомобильного транспорта с 03 июня 2019 года переименовали в кафедру тракторов и автомобилей.",
+        "head_of_department": "Дидманидзе Отари Назирович",
+        "rooms": "",
+        "phone": "+7 (499) 976-10-14",
+        "email": "autotrans@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-mekhaniki-i-energetiki-imeni-v-p-goriachkina/kafedra-traktorov-i-avtomobilei",
+        "image": "",
+        "head_photo": "image/deanarys/mechanic/departments/department_head_1617100897_didmanidze.JPG",
+        "building": "26"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.55644461607303,
+          55.834772245300705
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 48,
+        "name": "Кафедра инженерной и компьютерной графики",
+        "description": "Кафедра инженерной и компьютерной графики (первое название кафедры - начертательной геометрии и черчения) создана в 1930 г. со дня основания Московского института механизации и электрификации сельского хозяйства (МИМЭСХ-МИИСП-МГАУ-ИМиЭ РГАУ-МСХА). На этапе становления кафедры организовывал работу первый заведующий кафедрой, профессор И.Ф. Маслов. Значительный вклад в развитие кафедры внес доцент Д.Л. Рябинов (заведующий кафедрой с 1941 г. по 1975 г.).",
+        "head_of_department": "Чепурина Екатерина Леонидовна",
+        "rooms": "",
+        "phone": "+7 (499) 977-24-10",
+        "email": "ikg@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-mekhaniki-i-energetiki-imeni-v-p-goriachkina/kafedra-inzhenernoi-i-kompiuternoi-grafiki",
+        "image": "",
+        "head_photo": "image/deanarys/mechanic/departments/department_head_1655797734_image001.png",
+        "building": "23"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.555917422045674,
+          55.83550704363858
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 49,
+        "name": "Кафедра материаловедение и технология машиностроения",
+        "description": null,
+        "head_of_department": "Гайдар Сергей Михайлович",
+        "rooms": "",
+        "phone": "+7 (499) 976-14-38",
+        "email": "techmash@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-mekhaniki-i-energetiki-imeni-v-p-goriachkina/kafedra-materialovedenie-i-tekhnologiia-mashinostroeniia",
+        "image": "",
+        "head_photo": "image/deanarys/mechanic/departments/department_head_1513587405_gaydar.jpg",
+        "building": "23"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.55595553245729,
+          55.835457106327205
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 50,
+        "name": "Кафедра метрологии, стандартизации и управления качеством",
+        "description": "На кафедре ведётся подготовка инженеров по испытанию и контролю качества машин и оборудования, а также менеджеров по качеству, инженеров – метрологов, инженеров по стандартизации, инженеров по контролю качества и сертификации. Кафедра является выпускающей для направлений подготовки бакалавриата и магистратуры «Агроинженерия», « Стандартизация и метрология » и « Управление качеством ».",
+        "head_of_department": "Леонов Олег Альбертович",
+        "rooms": "",
+        "phone": "+7 (499) 976-01-70",
+        "email": "metr@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-mekhaniki-i-energetiki-imeni-v-p-goriachkina/kafedra-metrologii-standartizatsii-i-upravleniia-kachestvom",
+        "image": "",
+        "head_photo": "image/deanarys/mechanic/departments/department_head_1513591364_leonov.jpg",
+        "building": "22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.55739737636343,
+          55.83579596539554
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 51,
+        "name": "Кафедра сопротивление материалов и детали машин",
+        "description": "В 2012 году кафедра была создана путем объединения двух кафедр: «Сопротивление материалов» и «Детали машин и подъемно-транспортирующие механизмы». В 2013 году к кафедре «Сопротивление материалов и детали машин» присоединена кафедра «Теоретическая механика и ТММ».",
+        "head_of_department": "Казанцев Сергей Павлович",
+        "rooms": "",
+        "phone": "+7 (499) 976-06-73",
+        "email": "smdm@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-mekhaniki-i-energetiki-imeni-v-p-goriachkina/kafedra-soprotivlenie-materialov-i-detali-mashin",
+        "image": "",
+        "head_photo": "image/deanarys/mechanic/departments/department_head_1523300402_dsc_5907.jpg",
+        "building": "23"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.556006346339444,
+          55.83539646807718
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 22,
+        "name": null,
+        "description": null,
+        "head_of_department": null,
+        "rooms": null,
+        "phone": null,
+        "email": null,
+        "website": null,
+        "image": null,
+        "head_photo": null,
+        "building": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.557435486775056,
+          55.83574246152843
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 53,
+        "name": "Кафедра эксплуатации машинно-тракторного парка",
+        "description": "В соответствии с приказом по университету от 09.10.2013 года № 239-О – «О реорганизации структурных подразделений Федерального государственного бюджетного образовательного учреждения высшего профессионального образования «Московский государственный агроинженерный университет имени В.П. Горячкина», на базе кафедр «Эксплуатация машинно-тракторного парка» и «Технология производства продукции растениеводства», образована кафедра «Эксплуатация машинно-тракторного парка и высокие технологии в растениеводстве».",
+        "head_of_department": "Майстренко Николай Александрович",
+        "rooms": "",
+        "phone": "+7 (499) 977-24-10",
+        "email": "emtpivtr@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-mekhaniki-i-energetiki-imeni-v-p-goriachkina/kafedra-ekspluatatsii-mashinno-traktornogo-parka",
+        "image": "",
+        "head_photo": "image/deanarys/mechanic/departments/maysterenko.jpg",
+        "building": "26"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.556495429955184,
+          55.834715173004064
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 54,
+        "name": "Кафедра электроснабжения и теплоэнергетики имени академика И.А. Будзко",
+        "description": "Кафедра «Электроснабжение и теплоэнергетика имени академика И.А. Будзко» образована в августе 2024 г. путем объединения кафедр «Электроснабжение и электротехника имени академика И.А. Будзко» и «Теплотехника, гидравлика и энергообеспечение предприятий». Объединенную кафедру возглавляет д.т.н., профессор Нормов Дмитрий Александрович.",
+        "head_of_department": "Нормов Дмитрий Александрович",
+        "rooms": "",
+        "phone": "+7 (499) 976-18-78",
+        "email": "d.normov@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-mekhaniki-i-energetiki-imeni-v-p-goriachkina/kafedra-elektrosnabzheniia-i-teploenergetiki-imeni-akademika-i-a-budzko",
+        "image": "",
+        "head_photo": "image/deanarys/mechanic/departments/department_head_1712062461_image001.jpg",
+        "building": "24"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.55690194101243,
+          55.8339946280547
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 55,
+        "name": "Кафедра молекулярной селекции, клеточных технологий и семеноводства",
+        "description": null,
+        "head_of_department": "Монахос Сократ Григорьевич",
+        "rooms": "",
+        "phone": "+7 (499) 976-41-71",
+        "email": "s.monakhos@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-sadovodstva-i-landshaftnoi-arkhitektury/kafedra-molekuliarnoi-selektsii-kletochnykh-tekhnologii-i-semenovodstva",
+        "image": "",
+        "head_photo": "image/deanarys/gardening/departments/department_head_1673613370_monahos.jpg",
+        "building": "17"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.548320746663514,
+          55.834408407974486
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 56,
+        "name": "Кафедра плодоводства, виноградарства и виноделия",
+        "description": "Кафедра «Плодоводства, виноградарства и виноделия» образована в ноябре 2015 г. объединением кафедры «Плодоводства» и кафедры «Виноградарства и виноделия».",
+        "head_of_department": "Соловьев Александр Валерьевич",
+        "rooms": "",
+        "phone": null,
+        "email": "plodvin@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-sadovodstva-i-landshaftnoi-arkhitektury/kafedra-plodovodstva-vinogradarstva-i-vinodeliia",
+        "image": "",
+        "head_photo": "image/deanarys/gardening/departments/department_head_1663933453_soloviev.jpg",
+        "building": "17"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.54818100848758,
+          55.83437987156965
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 57,
+        "name": "Кафедра декоративного садоводства и газоноведения",
+        "description": "Кафедра «Декоративного садоводства и газоноведения» основана 02 июля 2004 года.",
+        "head_of_department": "Макаров Сергей Сергеевич",
+        "rooms": "",
+        "phone": "+7 (499) 977-10-65",
+        "email": null,
+        "website": "https://www.timacad.ru/education/instituty/institut-sadovodstva-i-landshaftnoi-arkhitektury/kafedra-dekorativnogo-sadovodstva-i-gazonovedeniia",
+        "image": "",
+        "head_photo": "image/deanarys/gardening/departments/department_head_1725617345_1_sp_0714.jpg",
+        "building": "19"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.552830478704756,
+          55.82707743077429
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 58,
+        "name": "Кафедра ландшафтной архитектуры",
+        "description": "Кафедра ландшафтной архитектуры факультета Садоводства и Ландшафтной Архитектуры РГАУ-МСХА имени К.А. Тимирязева выделена из состава кафедры Декоративного растениеводства 29 сентября 2006г.",
+        "head_of_department": "И.о. заведующего кафедрой",
+        "rooms": "",
+        "phone": "+7 (499) 976-12-43",
+        "email": null,
+        "website": "https://www.timacad.ru/education/instituty/institut-sadovodstva-i-landshaftnoi-arkhitektury/kafedra-landshaftnoi-arkhitektury",
+        "image": "",
+        "head_photo": "",
+        "building": "17"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.548079380723266,
+          55.83435133514387
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 59,
+        "name": "Кафедра овощеводства",
+        "description": null,
+        "head_of_department": "Терехова Вера Ивановна",
+        "rooms": "",
+        "phone": "+7 (499) 977-56-17",
+        "email": "ovoshevodstvo19@rgau-msha.ru",
+        "website": "https://www.timacad.ru/education/instituty/institut-sadovodstva-i-landshaftnoi-arkhitektury/kafedra-ovoshchevodstva",
+        "image": "",
+        "head_photo": "image/deanarys/gardening/departments/department_head_1611154432_terehova.png",
+        "building": "19"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.55292575473379,
+          55.82698823762922
+        ]
+      }
+    }
+  ]
+}

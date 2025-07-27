@@ -1,0 +1,176 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* OpenLayers стили */
+@import 'ol/ol.css';
+
+/* Кастомные CSS переменные */
+:root {
+  --font-montserrat: 'Montserrat', system-ui, sans-serif;
+  --font-roboto: 'Roboto', system-ui, sans-serif;
+}
+
+/* Базовые стили */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: theme('colors.university.background');
+  font-family: var(--font-roboto);
+}
+
+/* OpenLayers кастомизация */
+.ol-viewport {
+  touch-action: pan-x pan-y;
+}
+
+.ol-control button {
+  @apply bg-white text-gray-700 border border-gray-300 rounded shadow-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-university-primary;
+}
+
+.ol-zoom {
+  @apply right-2 top-2 left-auto;
+}
+
+.ol-attribution {
+  @apply bottom-2 right-2 bg-white/90 text-xs p-2 rounded;
+}
+
+/* Кастомные компоненты */
+@layer components {
+  .panel-base {
+    @apply bg-white shadow-lg border-r border-university-panel-border flex flex-col;
+  }
+  
+  .panel-header {
+    @apply bg-university-primary-dark text-white px-4 py-3 flex items-center justify-between flex-shrink-0;
+  }
+  
+  .panel-content {
+    @apply flex-1 overflow-y-auto bg-university-panel;
+  }
+  
+  .btn-map-control {
+    @apply w-12 h-12 bg-university-panel border border-university-panel-border rounded-lg shadow-md
+           flex items-center justify-center text-gray-700 hover:bg-gray-50 
+           focus:outline-none focus:ring-2 focus:ring-university-primary transition-all duration-200;
+  }
+  
+  .search-input {
+    @apply w-full px-4 py-2 pl-10 pr-4 text-gray-700 bg-white border border-gray-300 rounded-lg
+           focus:outline-none focus:ring-2 focus:ring-university-primary focus:border-transparent
+           placeholder-gray-500;
+  }
+  
+  .category-header {
+    @apply bg-university-primary-dark text-white px-4 py-3 cursor-pointer
+           hover:bg-university-primary transition-colors duration-200
+           flex items-center justify-between;
+  }
+  
+  .category-collapsed {
+    @apply bg-gray-500 hover:bg-gray-600;
+  }
+  
+  .layer-item {
+    @apply bg-university-panel border-b border-university-panel-border px-4 py-2
+           flex items-center justify-between hover:bg-gray-50 transition-colors duration-150;
+  }
+}
+
+/* Утилиты для анимаций */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .animate-slide-in-left {
+    animation: slideInLeft 0.3s ease-out;
+  }
+  
+  .animate-slide-in-right {
+    animation: slideInRight 0.3s ease-out;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+/* Скроллбары */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: theme('colors.university.primary') theme('colors.gray.100');
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-university-primary rounded-full;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-university-primary-dark;
+}
+
+/* Responsive improvements */
+@screen sm {
+  .panel-content {
+    @apply p-2;
+  }
+}
+
+@screen md {
+  .btn-map-control {
+    @apply w-14 h-14;
+  }
+}
+
+/* Loading states */
+.loading-spinner {
+  @apply animate-spin rounded-full border-2 border-gray-300 border-t-university-primary;
+}
+
+/* Focus states for accessibility */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-university-primary focus:ring-offset-2;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn-map-control {
+    @apply border-2 border-gray-900;
+  }
+} 

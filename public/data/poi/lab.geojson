@@ -1,0 +1,33 @@
+{
+  "type": "FeatureCollection",
+  "name": "lab",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Лабаратории цифровой трансформации АПК",
+        "rooms": "201-216",
+        "description": "В рамках развития стратегии цифровизации отрасли в Тимирязевской академии существуют лаборатории проектного института цифровой трансформации АПК, оснащение которого соответствует уровню ведущих вычислительных центров РФ. ",
+        "working_hours": "Пн-Пт 09:00-18:00",
+        "phone": "",
+        "email": "",
+        "website": "https://timailab.ru/",
+        "id": 0,
+        "image": "image/lab_buildings/techlab.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.55710563812354,
+          55.832443638382145
+        ]
+      }
+    }
+  ]
+}
