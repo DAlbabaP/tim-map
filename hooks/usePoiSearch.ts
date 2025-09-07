@@ -35,6 +35,18 @@ function getGeometryCenter(geometry: any): [number, number] {
 // Слои, которые считаются зданиями
 const BUILDING_LAYER_KEYWORDS = ['building', 'buildings']
 
+// Конкретные слои зданий
+const BUILDING_LAYERS = [
+  'main_building',
+  'university_buildings', 
+  'dormitory_buildings',
+  'lab_buildings',
+  'library_buildings',
+  'sport_buildings',
+  'museum_buildings',
+  'cafe_buildings'
+]
+
 // Слои POI (точки интереса)
 const POI_LAYERS = [
   'atm',
@@ -158,6 +170,11 @@ export function usePoiSearch() {
 
   const checkIfBuilding = useMemo(() => {
     return (layerName: string): boolean => {
+      // Сначала проверяем конкретные слои зданий
+      if (BUILDING_LAYERS.includes(layerName)) {
+        return true
+      }
+      // Затем проверяем по ключевым словам
       return BUILDING_LAYER_KEYWORDS.some(keyword => layerName.includes(keyword))
     }
   }, [])

@@ -32,8 +32,8 @@ export const LAYERS_CONFIG: AllLayersConfig = {
       style: {
         fillColor: '#4fc3f7',
         fillOpacity: 0.8,
-        strokeColor: '#29b6f6',
-        strokeWidth: 1
+        strokeColor: '#4fc3f7',
+        strokeWidth: 0
       }
     },
 
@@ -46,8 +46,8 @@ export const LAYERS_CONFIG: AllLayersConfig = {
       style: {
         fillColor: '#66bb6a',
         fillOpacity: 0.7,
-        strokeColor: '#4caf50',
-        strokeWidth: 1
+        strokeColor: '#66bb6a',
+        strokeWidth: 0
       }
     },
 
@@ -60,8 +60,8 @@ export const LAYERS_CONFIG: AllLayersConfig = {
       style: {
         fillColor: '#81c784',
         fillOpacity: 0.6,
-        strokeColor: '#66bb6a',
-        strokeWidth: 1
+        strokeColor: '#81c784',
+        strokeWidth: 0
       }
     },
 
@@ -74,8 +74,8 @@ export const LAYERS_CONFIG: AllLayersConfig = {
       style: {
         fillColor: '#aed581',
         fillOpacity: 0.5,
-        strokeColor: '#9ccc65',
-        strokeWidth: 1
+        strokeColor: '#aed581',
+        strokeWidth: 0
       }
     },
 
@@ -88,8 +88,8 @@ export const LAYERS_CONFIG: AllLayersConfig = {
       style: {
         fillColor: '#fff176',
         fillOpacity: 0.5,
-        strokeColor: '#ffeb3b',
-        strokeWidth: 1
+        strokeColor: '#fff176',
+        strokeWidth: 0
       }
     },
 
@@ -102,8 +102,8 @@ export const LAYERS_CONFIG: AllLayersConfig = {
       style: {
         fillColor: '#ffcc80',
         fillOpacity: 0.6,
-        strokeColor: '#ffb74d',
-        strokeWidth: 1
+        strokeColor: '#ffcc80',
+        strokeWidth: 0
       }
     },
 
@@ -116,8 +116,8 @@ export const LAYERS_CONFIG: AllLayersConfig = {
       style: {
         fillColor: '#a5d6a7',
         fillOpacity: 0.7,
-        strokeColor: '#81c784',
-        strokeWidth: 1
+        strokeColor: '#a5d6a7',
+        strokeWidth: 0
       }
     },
 
@@ -130,8 +130,8 @@ export const LAYERS_CONFIG: AllLayersConfig = {
       style: {
         fillColor: '#c8e6c9',
         fillOpacity: 0.6,
-        strokeColor: '#a5d6a7',
-        strokeWidth: 1
+        strokeColor: '#c8e6c9',
+        strokeWidth: 0
       }
     },
 
@@ -144,8 +144,8 @@ export const LAYERS_CONFIG: AllLayersConfig = {
       style: {
         fillColor: '#ffab91',
         fillOpacity: 0.6,
-        strokeColor: '#ff8a65',
-        strokeWidth: 1
+        strokeColor: '#ffab91',
+        strokeWidth: 0
       }
     },
 
@@ -158,8 +158,8 @@ export const LAYERS_CONFIG: AllLayersConfig = {
       style: {
         fillColor: '#f48fb1',
         fillOpacity: 0.6,
-        strokeColor: '#f06292',
-        strokeWidth: 2
+        strokeColor: '#f48fb1',
+        strokeWidth: 0
       }
     },
 
@@ -172,8 +172,8 @@ export const LAYERS_CONFIG: AllLayersConfig = {
       style: {
         fillColor: '#cccccc',
         fillOpacity: 0.5,
-        strokeColor: '#888888',
-        strokeWidth: 2
+        strokeColor: '#cccccc',
+        strokeWidth: 0
       }
     },
 
@@ -186,8 +186,8 @@ export const LAYERS_CONFIG: AllLayersConfig = {
       style: {
         fillColor: '#b0b0b0',
         fillOpacity: 0.5,
-        strokeColor: '#555555',
-        strokeWidth: 2
+        strokeColor: '#b0b0b0',
+        strokeWidth: 0
       }
     },
 
@@ -200,8 +200,8 @@ export const LAYERS_CONFIG: AllLayersConfig = {
       style: {
         fillColor: '#e0e0e0',
         fillOpacity: 0.6,
-        strokeColor: '#b0b0b0',
-        strokeWidth: 1
+        strokeColor: '#e0e0e0',
+        strokeWidth: 0
       }
     },
 
@@ -214,8 +214,8 @@ export const LAYERS_CONFIG: AllLayersConfig = {
       style: {
         fillColor: '#dcdcdc',
         fillOpacity: 0.6,
-        strokeColor: '#b8b8b8',
-        strokeWidth: 1
+        strokeColor: '#dcdcdc',
+        strokeWidth: 0
       }
     }
   },
@@ -232,8 +232,8 @@ export const LAYERS_CONFIG: AllLayersConfig = {
       style: {
         fillColor: '#667eea',
         fillOpacity: 0.8,
-        strokeColor: '#4834d4',
-        strokeWidth: 2
+        strokeColor: '#667eea',
+        strokeWidth: 0
       }
     },
 
@@ -246,8 +246,8 @@ export const LAYERS_CONFIG: AllLayersConfig = {
       style: {
         fillColor: '#e5ec9a',
         fillOpacity: 0.7,
-        strokeColor: '#aeb56a',
-        strokeWidth: 2
+        strokeColor: '#e5ec9a',
+        strokeWidth: 0
       }
     },
 
@@ -260,8 +260,8 @@ export const LAYERS_CONFIG: AllLayersConfig = {
       style: {
         fillColor: '#ffc166',
         fillOpacity: 0.7,
-        strokeColor: '#d3b589',
-        strokeWidth: 2
+        strokeColor: '#ffc166',
+        strokeWidth: 0
       }
     },
 
@@ -275,7 +275,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
         fillColor: '#ab57b9',
         fillOpacity: 0.7,
         strokeColor: '#ab57b9',
-        strokeWidth: 2
+        strokeWidth: 0
       }
     },
 
@@ -288,8 +288,8 @@ export const LAYERS_CONFIG: AllLayersConfig = {
       style: {
         fillColor: '#8db3d3',
         fillOpacity: 0.7,
-        strokeColor: '#7aa3c5',
-        strokeWidth: 2
+        strokeColor: '#8db3d3',
+        strokeWidth: 0
       }
     },
 
@@ -302,8 +302,8 @@ export const LAYERS_CONFIG: AllLayersConfig = {
       style: {
         fillColor: '#51adf6',
         fillOpacity: 0.7,
-        strokeColor: '#548cb9',
-        strokeWidth: 2
+        strokeColor: '#51adf6',
+        strokeWidth: 0
       }
     },
 
@@ -316,8 +316,8 @@ export const LAYERS_CONFIG: AllLayersConfig = {
       style: {
         fillColor: '#837575',
         fillOpacity: 0.7,
-        strokeColor: '#685d5d',
-        strokeWidth: 2
+        strokeColor: '#837575',
+        strokeWidth: 0
       }
     },
 
@@ -330,51 +330,8 @@ export const LAYERS_CONFIG: AllLayersConfig = {
       style: {
         fillColor: '#f99d97',
         fillOpacity: 0.7,
-        strokeColor: '#c27e7a',
-        strokeWidth: 2
-      }
-    },
-
-    // === ДЕТАЛЬНЫЕ ПЛАНЫ КОРПУСОВ ===
-    korpus1_level0: {
-      url: 'data/buildings/university/1korpus/korpus1_level0.geojson',
-      name: 'Цоколь / подвал — 1 корпус',
-      category: 'university',
-      interactive: true,
-      zIndex: MAP_Z_INDEX.BUILDINGS + 20,
-      style: {
-        fillColor: '#ffe082',
-        fillOpacity: 0.6,
-        strokeColor: '#ffca28',
-        strokeWidth: 2
-      }
-    },
-
-    korpus1_level1: {
-      url: 'data/buildings/university/1korpus/korpus1_level1.geojson',
-      name: '1-й этаж — 1 корпус',
-      category: 'university',
-      interactive: true,
-      zIndex: MAP_Z_INDEX.BUILDINGS + 21,
-      style: {
-        fillColor: '#ffd54f',
-        fillOpacity: 0.65,
-        strokeColor: '#ffa000',
-        strokeWidth: 2
-      }
-    },
-
-    korpus1_level2: {
-      url: 'data/buildings/university/1korpus/korpus1_level2.geojson',
-      name: '2-й этаж — 1 корпус',
-      category: 'university',
-      interactive: true,
-      zIndex: MAP_Z_INDEX.BUILDINGS + 22,
-      style: {
-        fillColor: '#ffca28',
-        fillOpacity: 0.65,
-        strokeColor: '#ffb300',
-        strokeWidth: 2
+        strokeColor: '#f99d97',
+        strokeWidth: 0
       }
     },
 
@@ -402,8 +359,8 @@ export const LAYERS_CONFIG: AllLayersConfig = {
       style: {
         fillColor: '#c7e37c',
         fillOpacity: 0.7,
-        strokeColor: '#aecb60',
-        strokeWidth: 2
+        strokeColor: '#c7e37c',
+        strokeWidth: 0
       }
     },
 
@@ -416,8 +373,8 @@ export const LAYERS_CONFIG: AllLayersConfig = {
       style: {
         fillColor: '#f39c12',
         fillOpacity: 0.8,
-        strokeColor: '#d35400',
-        strokeWidth: 2
+        strokeColor: '#f39c12',
+        strokeWidth: 0
       }
     },
 
@@ -430,8 +387,8 @@ export const LAYERS_CONFIG: AllLayersConfig = {
       style: {
         fillColor: '#e74c3c',
         fillOpacity: 0.8,
-        strokeColor: '#c0392b',
-        strokeWidth: 2
+        strokeColor: '#e74c3c',
+        strokeWidth: 0
       }
     },
 
@@ -447,8 +404,8 @@ export const LAYERS_CONFIG: AllLayersConfig = {
         return {
           fillColor: opened ? '#4caf50' : '#bdbdbd',
           fillOpacity: 0.3,
-          strokeColor: opened ? '#388e3c' : '#757575',
-          strokeWidth: 2
+          strokeColor: opened ? '#4caf50' : '#bdbdbd',
+          strokeWidth: 0
         }
       }
     },
@@ -537,6 +494,51 @@ export const LAYERS_CONFIG: AllLayersConfig = {
         strokeWidth: 2
       }
     }
+  },
+
+  // Поэтажные планы - загружаются только по требованию
+  floorPlans: {
+    korpus1_level0: {
+      url: 'data/buildings/university/1korpus/korpus1_level0.geojson',
+      name: 'Цоколь / подвал — 1 корпус',
+      category: 'university',
+      interactive: true,
+      zIndex: MAP_Z_INDEX.BUILDINGS + 20,
+      style: {
+        fillColor: '#ffe082',
+        fillOpacity: 0.6,
+        strokeColor: '#ffca28',
+        strokeWidth: 2
+      }
+    },
+
+    korpus1_level1: {
+      url: 'data/buildings/university/1korpus/korpus1_level1.geojson',
+      name: '1-й этаж — 1 корпус',
+      category: 'university',
+      interactive: true,
+      zIndex: MAP_Z_INDEX.BUILDINGS + 21,
+      style: {
+        fillColor: '#ffd54f',
+        fillOpacity: 0.65,
+        strokeColor: '#ffa000',
+        strokeWidth: 2
+      }
+    },
+
+    korpus1_level2: {
+      url: 'data/buildings/university/1korpus/korpus1_level2.geojson',
+      name: '2-й этаж — 1 корпус',
+      category: 'university',
+      interactive: true,
+      zIndex: MAP_Z_INDEX.BUILDINGS + 22,
+      style: {
+        fillColor: '#ffca28',
+        fillOpacity: 0.65,
+        strokeColor: '#ffb300',
+        strokeWidth: 2
+      }
+    }
   }
 }
 
@@ -602,7 +604,7 @@ export const FLOOR_PLANS: FloorPlanConfig[] = [
   {
     buildingId: 'korpus1',
     buildingName: 'Главный корпус (1 корпус)',
-    buildingLayers: ['main_building', 'university_buildings'],
+    buildingLayers: ['main_building'], // Убрали university_buildings
     floors: [
       {
         level: 0,
@@ -637,7 +639,91 @@ export function getFloorPlanByLayer(layerName: string): FloorPlanConfig | null {
  * Функция для проверки, есть ли у здания поэтажный план
  */
 export function hasFloorPlan(layerName: string): boolean {
-  return FLOOR_PLANS.some(config => 
+  return FLOOR_PLANS.some(config =>
     config.buildingLayers.includes(layerName)
   )
+}
+
+/**
+ * Зоны корпусов для определения принадлежности POI
+ * Координаты определяют границы каждого корпуса
+ */
+const BUILDING_ZONES = {
+  korpus1: {
+    minLon: 37.548, maxLon: 37.558,
+    minLat: 55.831, maxLat: 55.836
+  },
+  // Добавьте зоны для других корпусов по мере необходимости
+  // korpus2: { minLon: ..., maxLon: ..., minLat: ..., maxLat: ... }
+}
+
+/**
+ * Функция для определения корпуса по координатам точки
+ */
+function getBuildingByCoordinates(lon: number, lat: number): string | null {
+  for (const [buildingId, zone] of Object.entries(BUILDING_ZONES)) {
+    if (lon >= zone.minLon && lon <= zone.maxLon &&
+        lat >= zone.minLat && lat <= zone.maxLat) {
+      return buildingId
+    }
+  }
+  return null
+}
+
+/**
+ * Функция для определения корпуса по свойствам здания или POI
+ */
+export function getBuildingByFeature(feature: any, layerName: string): FloorPlanConfig | null {
+  // Для main_building всегда возвращаем план корпуса 1
+  if (layerName === 'main_building') {
+    return FLOOR_PLANS.find(config => config.buildingId === 'korpus1') || null
+  }
+
+  // Для university_buildings пытаемся определить корпус по свойствам или координатам
+  if (layerName === 'university_buildings') {
+    const properties = feature?.getProperties?.() || feature?.properties || {}
+
+    // Проверяем название или описание
+    const name = properties.name || properties.title || ''
+    const description = properties.description || ''
+
+    // Определяем корпус по названию или описанию
+    if (name.toLowerCase().includes('корпус 1') || name.toLowerCase().includes('главный корпус') ||
+        description.toLowerCase().includes('корпус 1') || description.toLowerCase().includes('главный корпус')) {
+      return FLOOR_PLANS.find(config => config.buildingId === 'korpus1') || null
+    }
+
+    // Пытаемся определить по координатам геометрии
+    const geometry = feature?.getGeometry?.()
+    if (geometry) {
+      try {
+        const coordinates = geometry.getCoordinates()
+        if (coordinates && coordinates.length > 0) {
+          // Для точки берем координаты напрямую
+          if (typeof coordinates[0] === 'number') {
+            const [lon, lat] = coordinates
+            const buildingId = getBuildingByCoordinates(lon, lat)
+            if (buildingId) {
+              return FLOOR_PLANS.find(config => config.buildingId === buildingId) || null
+            }
+          }
+          // Для полигона берем первую точку
+          else if (coordinates[0] && coordinates[0][0] && typeof coordinates[0][0][0] === 'number') {
+            const [lon, lat] = coordinates[0][0]
+            const buildingId = getBuildingByCoordinates(lon, lat)
+            if (buildingId) {
+              return FLOOR_PLANS.find(config => config.buildingId === buildingId) || null
+            }
+          }
+        }
+      } catch (error) {
+        console.warn('Ошибка определения корпуса по координатам:', error)
+      }
+    }
+
+    // Если не можем определить корпус, возвращаем null (нет поэтажного плана)
+    return null
+  }
+
+  return null
 } 

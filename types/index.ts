@@ -60,6 +60,7 @@ export interface LayerGroup {
 export interface AllLayersConfig {
   base: LayerGroup
   interactive: LayerGroup
+  floorPlans: LayerGroup
 }
 
 // =============================================================================

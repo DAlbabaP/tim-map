@@ -12,17 +12,29 @@ interface FloorPlanSliderProps {
 export function FloorPlanSlider({ className }: FloorPlanSliderProps) {
   const { floorPlan, setCurrentFloor, hideFloorPlan } = useFloorPlan()
   const [isExpanded, setIsExpanded] = useState(true)
+  const [lastFloorPlan, setLastFloorPlan] = useState<typeof floorPlan>(null)
 
   // Автоматически разворачиваем при появлении поэтажного плана
   useEffect(() => {
     if (floorPlan) {
       setIsExpanded(true)
+      setLastFloorPlan(floorPlan)
     }
   }, [floorPlan])
 
-  if (!floorPlan) return null
+  // После закрытия (floorPlan=null) удаляем lastFloorPlan чуть позже, чтобы дать отыграть exit-анимации
+  useEffect(() => {
+    if (!floorPlan && lastFloorPlan) {
+      const t = setTimeout(() => setLastFloorPlan(null), 240)
+      return () => clearTimeout(t)
+    }
+  }, [floorPlan, lastFloorPlan])
 
-  const { buildingName, currentFloor, availableFloors } = floorPlan
+  // Для плавного закрытия используем последние данные, если план только что закрылся
+  const renderFloorPlan = floorPlan || lastFloorPlan
+  if (!renderFloorPlan) return null
+
+  const { buildingName, currentFloor, availableFloors } = renderFloorPlan
 
   // Сортируем этажи по уровню (от верхнего к нижнему)
   const sortedFloors = [...availableFloors].sort((a, b) => b.level - a.level)
@@ -32,15 +44,19 @@ export function FloorPlanSlider({ className }: FloorPlanSliderProps) {
   }
 
   const handleClose = () => {
-    hideFloorPlan()
     setIsExpanded(false)
+    // даём время на exit-анимацию
+    setTimeout(() => {
+      hideFloorPlan()
+    }, 200)
   }
 
   const currentFloorInfo = availableFloors.find(f => f.level === currentFloor)
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       <motion.div
+        key={floorPlan ? 'open' : 'closing'}
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 100, opacity: 0 }}

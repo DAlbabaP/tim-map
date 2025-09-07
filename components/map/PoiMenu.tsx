@@ -42,6 +42,8 @@ interface PoiMenuItem {
   layerName: string
   name: string
   type: string
+  originalId?: string
+  feature?: any
 }
 
 interface PoiMenuProps {
@@ -66,6 +68,8 @@ export function PoiMenu({
   const [isExpanded, setIsExpanded] = useState(false)
   const [selectedItem, setSelectedItem] = useState<string>('')
   const menuRef = useRef<HTMLDivElement>(null)
+  // Запоминаем последнюю позицию, чтобы проигрывать exit-анимацию
+  const [lastPosition, setLastPosition] = useState<[number, number] | null>(null)
 
   // Определяем категорию здания по имени слоя (логика из старой версии)
   const getBuildingCategory = (layerName: string): string => {
@@ -126,23 +130,31 @@ export function PoiMenu({
     setIsExpanded(true)
   }
 
-  if (!isVisible || !position) return null
+  // Обновляем позицию, когда она приходит
+  useEffect(() => {
+    if (position) setLastPosition(position)
+  }, [position])
+
+  // Если ещё ни разу не отображали меню и позиции нет — ничего не рендерим
+  if (!position && !lastPosition) return null
+
+  const renderPosition = position || lastPosition!
 
   // Вычисляем количество колонок для expanded режима
   const totalItems = 1 + filteredPoiItems.length // здание + все POI
   const expandedColumns = Math.ceil(totalItems / 2)
 
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <div
-          className="fixed pointer-events-none z-[1000]"
-          style={{
-            left: position[0],
-            top: position[1],
-            transform: 'translate(-50%, -100%)'
-          }}
-        >
+    <div
+      className="fixed pointer-events-none z-[1000]"
+      style={{
+        left: renderPosition[0],
+        top: renderPosition[1],
+        transform: 'translate(-50%, -100%)'
+      }}
+    >
+      <AnimatePresence>
+        {isVisible && (
           <motion.div
             ref={menuRef}
             initial={{ opacity: 0, scale: 0.8, y: 10 }}
@@ -210,9 +222,9 @@ export function PoiMenu({
               />
             </div>
           </motion.div>
-        </div>
-      )}
-    </AnimatePresence>
+        )}
+      </AnimatePresence>
+    </div>
   )
 }
 

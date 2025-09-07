@@ -41,9 +41,16 @@ export function InfoPanel({ isOpen }: InfoPanelProps) {
     return () => document.removeEventListener('click', handleClickOutside)
   }, [isMobile, isOpen, setOpen])
 
-  if (!isOpen || !feature) return null
+  // Сохраняем ссылку на последнюю feature, чтобы проигрывать exit-анимацию
+  const [lastFeature, setLastFeature] = useState<any>(null)
+  useEffect(() => {
+    if (feature) setLastFeature(feature)
+  }, [feature])
 
-  const properties = feature.getProperties()
+  if (!isOpen && !lastFeature) return null
+  const renderFeature = feature || lastFeature
+
+  const properties = renderFeature.getProperties()
   const categoryMapping = layer ? SEARCH_CONFIG.categoryMappings[layer] : null
 
   // Группировка полей по секциям
@@ -76,7 +83,7 @@ export function InfoPanel({ isOpen }: InfoPanelProps) {
   return (
     <>
       {/* Оверлей для мобильных */}
-      {isMobile && isOpen && (
+      {isMobile && (isOpen) && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -216,6 +223,28 @@ function FieldDisplay({ label, value, type, icon }: FieldDisplayProps) {
 
   // Форматирование значения
   const formatValue = () => {
+    // Универсальная защита: React не может рендерить "чистые" объекты
+    // Преобразуем их в строку или список
+    if (typeof value === 'object' && value !== null) {
+      if (Array.isArray(value)) {
+        return (
+          <ul className="list-disc list-inside space-y-1">
+            {value.map((item, index) => (
+              <li key={index} className="text-sm">
+                {typeof item === 'object' ? JSON.stringify(item) : String(item)}
+              </li>
+            ))}
+          </ul>
+        )
+      }
+      // Отображаем объект как компактный JSON
+      try {
+        return <span className="font-mono text-xs break-all">{JSON.stringify(value)}</span>
+      } catch {
+        return <span className="font-mono text-xs">[object]</span>
+      }
+    }
+
     switch (type) {
       case 'contact':
         if (icon === 'phone') {
@@ -263,7 +292,7 @@ function FieldDisplay({ label, value, type, icon }: FieldDisplayProps) {
           return (
             <ul className="list-disc list-inside space-y-1">
               {value.map((item, index) => (
-                <li key={index} className="text-sm">{item}</li>
+                <li key={index} className="text-sm">{typeof item === 'object' ? JSON.stringify(item) : String(item)}</li>
               ))}
             </ul>
           )
@@ -288,7 +317,7 @@ function FieldDisplay({ label, value, type, icon }: FieldDisplayProps) {
         return `${value} ₽`
 
       default:
-        return value
+        return String(value)
     }
   }
 
