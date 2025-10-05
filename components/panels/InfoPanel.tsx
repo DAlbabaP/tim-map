@@ -8,7 +8,6 @@ import { useInfoPanel, useMobileState } from '@/stores/panelStore'
 import { useSelectedFeature } from '@/stores/mapStore'
 import { FIELDS_DISPLAY_CONFIG, FIELD_SECTIONS } from '@/config/fields'
 import { SEARCH_CONFIG } from '@/config/search'
-import { getPublicPath } from '@/lib/paths'
 
 interface InfoPanelProps {
   isOpen: boolean
@@ -137,7 +136,7 @@ export function InfoPanel({ isOpen }: InfoPanelProps) {
           {properties.image_path && (
             <div className="relative mb-4">
               <Image
-                src={getPublicPath(`images/${properties.image_path}`)}
+                src={`/images/${properties.image_path}`}
                 alt={properties.name || 'Изображение объекта'}
                 width={400}
                 height={200}

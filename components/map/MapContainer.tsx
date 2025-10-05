@@ -9,7 +9,6 @@ import { usePoiSearch } from '@/hooks/usePoiSearch'
 import { PoiMenu } from './PoiMenu'
 import { FloorPlanSlider } from './FloorPlanSlider'
 import { hasFloorPlan, getFloorPlanByLayer, getBuildingByFeature } from '@/config/layers'
-import { getPublicPath } from '@/lib/paths'
 
 // Зоны корпусов для определения принадлежности POI
 // Расширяем зону для корпуса 1 (главного здания)
@@ -217,7 +216,8 @@ export function MapContainer() {
 
   const buildRoadGraphFromGeoJSON = async () => {
     try {
-      const response = await fetch(getPublicPath('data/infrastructure/roads.geojson'))
+      const basePath = process.env.NODE_ENV === 'production' ? '/tim-map' : ''
+      const response = await fetch(`${basePath}/data/infrastructure/roads.geojson`)
       if (!response.ok) {
         console.warn('⚠️ Не удалось загрузить roads.geojson для графа маршрутизации')
         return
@@ -397,7 +397,7 @@ export function MapContainer() {
         if (!layerConfig) continue
 
         try {
-          const response = await fetch(getPublicPath(layerConfig.url))
+          const response = await fetch(`/${layerConfig.url}`)
           if (!response.ok) continue
 
           const geojsonData = await response.json()
@@ -468,7 +468,7 @@ export function MapContainer() {
         if (!layerConfig) continue
 
         try {
-          const response = await fetch(getPublicPath(layerConfig.url))
+          const response = await fetch(`/${layerConfig.url}`)
           if (!response.ok) continue
 
           const geojsonData = await response.json()
@@ -1168,7 +1168,7 @@ export function MapContainer() {
                     if (iconPath) {
                       // Используем иконку для POI и транспорта
                       styleOptions.image = new Icon({
-                        src: getPublicPath(`images/icons/${iconPath}`),
+                        src: `/images/icons/${iconPath}`,
                         scale: 0.03,
                         anchor: [0.5, 1],
                         anchorXUnits: 'fraction',
@@ -1215,7 +1215,7 @@ export function MapContainer() {
                     if (iconPath) {
                       // Используем иконку для POI и транспорта
                       styleOptions.image = new Icon({
-                        src: getPublicPath(`images/icons/${iconPath}`),
+                        src: `/images/icons/${iconPath}`,
                         scale: 0.03,
                         anchor: [0.5, 1],
                         anchorXUnits: 'fraction',

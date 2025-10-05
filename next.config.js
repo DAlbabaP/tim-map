@@ -1,9 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  env: {
-    NEXT_PUBLIC_BASE_PATH: process.env.NODE_ENV === 'production' ? '/tim-map' : ''
-  },
-  
   experimental: {
     optimizePackageImports: ['ol', 'lucide-react']
   },

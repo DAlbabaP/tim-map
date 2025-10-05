@@ -1,5 +1,6 @@
 import { AllLayersConfig } from '@/types'
 import { MAP_Z_INDEX } from './map'
+import { getGeoJSONPath } from '@/lib/paths'
 
 /**
  * Конфигурация всех слоев карты
@@ -9,7 +10,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
   base: {
     // === ПОДЛОЖКА ===
     podlozka: {
-      url: 'data/buildings/podlozka_for_map.geojson',
+      url: getGeoJSONPath('data/buildings/podlozka_for_map.geojson'),
       name: 'Базовая подложка',
       category: 'infrastructure',
       interactive: false,
@@ -24,7 +25,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
 
     // === НАТУРАЛЬНЫЕ СЛОИ ===
     water: {
-      url: 'data/nature/water.geojson',
+      url: getGeoJSONPath('data/nature/water.geojson'),
       name: 'Водоемы',
       category: 'nature',
       interactive: false,
@@ -38,7 +39,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     forest: {
-      url: 'data/nature/forest.geojson',
+      url: getGeoJSONPath('data/nature/forest.geojson'),
       name: 'Лес',
       category: 'nature',
       interactive: false,
@@ -52,7 +53,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     parks: {
-      url: 'data/nature/parks.geojson',
+      url: getGeoJSONPath('data/nature/parks.geojson'),
       name: 'Парки',
       category: 'nature',
       interactive: false,
@@ -66,7 +67,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     grassland: {
-      url: 'data/nature/grassland.geojson',
+      url: getGeoJSONPath('data/nature/grassland.geojson'),
       name: 'Луга',
       category: 'nature',
       interactive: false,
@@ -80,7 +81,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     fields: {
-      url: 'data/nature/fields.geojson',
+      url: getGeoJSONPath('data/nature/fields.geojson'),
       name: 'Поля',
       category: 'nature',
       interactive: false,
@@ -94,7 +95,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     beach: {
-      url: 'data/nature/beach.geojson',
+      url: getGeoJSONPath('data/nature/beach.geojson'),
       name: 'Пляжи',
       category: 'nature',
       interactive: false,
@@ -108,7 +109,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     greenhouse: {
-      url: 'data/nature/greenhouse.geojson',
+      url: getGeoJSONPath('data/nature/greenhouse.geojson'),
       name: 'Теплицы',
       category: 'nature',
       interactive: false,
@@ -122,7 +123,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     orchdeal: {
-      url: 'data/nature/orchdeal.geojson',
+      url: getGeoJSONPath('data/nature/orchdeal.geojson'),
       name: 'Сады',
       category: 'nature',
       interactive: false,
@@ -136,7 +137,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     pitch: {
-      url: 'data/nature/pitch.geojson',
+      url: getGeoJSONPath('data/nature/pitch.geojson'),
       name: 'Спортивные площадки',
       category: 'nature',
       interactive: false,
@@ -150,7 +151,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     running_tracks: {
-      url: 'data/nature/running_tracks.geojson',
+      url: getGeoJSONPath('data/nature/running_tracks.geojson'),
       name: 'Беговые дорожки',
       category: 'nature',
       interactive: false,
@@ -164,7 +165,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     roads: {
-      url: 'data/infrastructure/roads.geojson',
+      url: getGeoJSONPath('data/infrastructure/roads.geojson'),
       name: 'Дороги',
       category: 'infrastructure',
       interactive: false,
@@ -178,7 +179,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     railways: {
-      url: 'data/infrastructure/railways.geojson',
+      url: getGeoJSONPath('data/infrastructure/railways.geojson'),
       name: 'Железные дороги',
       category: 'infrastructure',
       interactive: false,
@@ -192,7 +193,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     buildings_in_university: {
-      url: 'data/buildings/university/buildings_in_university.geojson',
+      url: getGeoJSONPath('data/buildings/university/buildings_in_university.geojson'),
       name: 'Здания на территории университета',
       category: 'infrastructure',
       interactive: false,
@@ -206,7 +207,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     buildings_for_map: {
-      url: 'data/buildings/buildings_for_map.geojson',
+      url: getGeoJSONPath('data/buildings/buildings_for_map.geojson'),
       name: 'Здания (внешняя территория)',
       category: 'infrastructure',
       interactive: false,
@@ -224,7 +225,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
   interactive: {
     // === УНИВЕРСИТЕТСКИЕ ЗДАНИЯ ===
     main_building: {
-      url: 'data/buildings/university/main_building.geojson',
+      url: getGeoJSONPath('data/buildings/university/main_building.geojson'),
       name: 'Главное здание',
       category: 'university',
       interactive: true,
@@ -238,7 +239,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     university_buildings: {
-      url: 'data/buildings/university/university_buildings.geojson',
+      url: getGeoJSONPath('data/buildings/university/university_buildings.geojson'),
       name: 'Учебные здания',
       category: 'university',
       interactive: true,
@@ -252,7 +253,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     dormitory_buildings: {
-      url: 'data/buildings/university/dormitory_buildings.geojson',
+      url: getGeoJSONPath('data/buildings/university/dormitory_buildings.geojson'),
       name: 'Общежития',
       category: 'university',
       interactive: true,
@@ -266,7 +267,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     lab_buildings: {
-      url: 'data/buildings/university/lab_buildings.geojson',
+      url: getGeoJSONPath('data/buildings/university/lab_buildings.geojson'),
       name: 'Лабораторные здания',
       category: 'university',
       interactive: true,
@@ -280,7 +281,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     library_buildings: {
-      url: 'data/buildings/university/library_buildings.geojson',
+      url: getGeoJSONPath('data/buildings/university/library_buildings.geojson'),
       name: 'Библиотечные здания',
       category: 'university',
       interactive: true,
@@ -294,7 +295,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     sport_buildings: {
-      url: 'data/buildings/university/sport_buildings.geojson',
+      url: getGeoJSONPath('data/buildings/university/sport_buildings.geojson'),
       name: 'Спортивные здания',
       category: 'university',
       interactive: true,
@@ -308,7 +309,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     museum_buildings: {
-      url: 'data/buildings/public/museum_buildings.geojson',
+      url: getGeoJSONPath('data/buildings/public/museum_buildings.geojson'),
       name: 'Музейные здания',
       category: 'university',
       interactive: true,
@@ -322,7 +323,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     cafe_buildings: {
-      url: 'data/buildings/public/cafe_buildings.geojson',
+      url: getGeoJSONPath('data/buildings/public/cafe_buildings.geojson'),
       name: 'Кафе и рестораны',
       category: 'university',
       interactive: true,
@@ -337,7 +338,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
 
     // === ТРАНСПОРТ ===
     metro_stations: {
-      url: 'data/transport/metro_stations.geojson',
+      url: getGeoJSONPath('data/transport/metro_stations.geojson'),
       name: 'Станции метро',
       category: 'transport',
       interactive: true,
@@ -351,7 +352,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     metro_platforms: {
-      url: 'data/transport/metro_platforms.geojson',
+      url: getGeoJSONPath('data/transport/metro_platforms.geojson'),
       name: 'Платформы метро',
       category: 'transport',
       interactive: false,
@@ -365,7 +366,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     tram_stops: {
-      url: 'data/transport/tram_stops.geojson',
+      url: getGeoJSONPath('data/transport/tram_stops.geojson'),
       name: 'Трамвайные остановки',
       category: 'transport',
       interactive: true,
@@ -379,7 +380,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     bus_stops: {
-      url: 'data/transport/bus_stops.geojson',
+      url: getGeoJSONPath('data/transport/bus_stops.geojson'),
       name: 'Автобусные остановки',
       category: 'transport',
       interactive: true,
@@ -393,7 +394,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     parking: {
-      url: 'data/transport/parking.geojson',
+      url: getGeoJSONPath('data/transport/parking.geojson'),
       name: 'Парковки',
       category: 'transport',
       interactive: true,
@@ -412,7 +413,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
 
     // === ТОЧКИ ИНТЕРЕСА (POI) ===
     cafe: {
-      url: 'data/poi/cafe.geojson',
+      url: getGeoJSONPath('data/poi/cafe.geojson'),
       name: 'Кафе',
       category: 'poi',
       interactive: true,
@@ -426,7 +427,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     atm: {
-      url: 'data/poi/atm.geojson',
+      url: getGeoJSONPath('data/poi/atm.geojson'),
       name: 'Банкоматы',
       category: 'poi',
       interactive: true,
@@ -440,7 +441,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     lab: {
-      url: 'data/poi/lab.geojson',
+      url: getGeoJSONPath('data/poi/lab.geojson'),
       name: 'Лаборатории (точки)',
       category: 'poi',
       interactive: true,
@@ -454,7 +455,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     museum: {
-      url: 'data/poi/museum.geojson',
+      url: getGeoJSONPath('data/poi/museum.geojson'),
       name: 'Музеи (точки)',
       category: 'poi',
       interactive: true,
@@ -468,7 +469,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     deanery: {
-      url: 'data/poi/deanery.geojson',
+      url: getGeoJSONPath('data/poi/deanery.geojson'),
       name: 'Деканаты',
       category: 'poi',
       interactive: true,
@@ -482,7 +483,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     departments: {
-      url: 'data/poi/departments.geojson',
+      url: getGeoJSONPath('data/poi/departments.geojson'),
       name: 'Кафедры',
       category: 'poi',
       interactive: true,
@@ -499,7 +500,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
   // Поэтажные планы - загружаются только по требованию
   floorPlans: {
     korpus1_level0: {
-      url: 'data/buildings/university/1korpus/korpus1_level0.geojson',
+      url: getGeoJSONPath('data/buildings/university/1korpus/korpus1_level0.geojson'),
       name: 'Цоколь / подвал — 1 корпус',
       category: 'university',
       interactive: true,
@@ -513,7 +514,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     korpus1_level1: {
-      url: 'data/buildings/university/1korpus/korpus1_level1.geojson',
+      url: getGeoJSONPath('data/buildings/university/1korpus/korpus1_level1.geojson'),
       name: '1-й этаж — 1 корпус',
       category: 'university',
       interactive: true,
@@ -527,7 +528,7 @@ export const LAYERS_CONFIG: AllLayersConfig = {
     },
 
     korpus1_level2: {
-      url: 'data/buildings/university/1korpus/korpus1_level2.geojson',
+      url: getGeoJSONPath('data/buildings/university/1korpus/korpus1_level2.geojson'),
       name: '2-й этаж — 1 корпус',
       category: 'university',
       interactive: true,

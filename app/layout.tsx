@@ -2,9 +2,6 @@ import type { Metadata, Viewport } from 'next'
 import { Montserrat, Roboto } from 'next/font/google'
 import './globals.css'
 
-// Получаем basePath для правильных путей в metadata
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
-
 const montserrat = Montserrat({
   subsets: ['latin', 'cyrillic'],
   variable: '--font-montserrat',
@@ -33,7 +30,7 @@ export const metadata: Metadata = {
     siteName: 'ТимМап',
     images: [
       {
-        url: `${basePath}/images/icons/seo.png`,
+        url: '/images/icons/seo.png',
         width: 1200,
         height: 630,
         alt: 'ТимМап - Интерактивная карта университета',
@@ -44,12 +41,12 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Интерактивная карта университета | ТимМап',
     description: 'Быстро ищите здания, инфраструктуру и транспорт университета на интерактивной карте ТимМап.',
-    images: [`${basePath}/images/icons/seo.png`],
+    images: ['/images/icons/seo.png'],
   },
   icons: {
-    icon: `${basePath}/images/icons/favicon.ico`,
-    shortcut: `${basePath}/images/icons/favicon.ico`,
-    apple: `${basePath}/images/icons/apple-touch-icon.png`,
+    icon: '/images/icons/favicon.ico',
+    shortcut: '/images/icons/favicon.ico',
+    apple: '/images/icons/apple-touch-icon.png',
   },
 }
 
