@@ -135,8 +135,16 @@ export function MapControls() {
 
   // Навигатор маршрутов
   const handleNavigator = () => {
-    // TODO: Открыть панель построения маршрутов
-    console.log('🗺️ Построение маршрута')
+    const { toggleRouting, clearRoute, isRouting } = useMapStore.getState()
+    if (isRouting) {
+      clearRoute()
+      toggleRouting(false)
+      console.log('🧭 Режим навигации: выключен, маршрут очищен')
+    } else {
+      clearRoute()
+      toggleRouting(true)
+      console.log('🧭 Режим навигации: включен — выберите старт и финиш на карте')
+    }
   }
 
   // Мероприятия

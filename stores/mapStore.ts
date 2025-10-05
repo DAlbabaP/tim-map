@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { subscribeWithSelector } from 'zustand/middleware'
-import type { OLFeature } from '@/types'
+import type { OLFeature, AllLayersConfig } from '@/types'
 
 interface FloorPlan {
   buildingId: string
@@ -44,6 +44,12 @@ interface MapState {
   zoom: number
   extent: [number, number, number, number] | null
 
+  // Навигация/маршрут
+  isRouting: boolean
+  routeStart: [number, number] | null // в проекции EPSG:3857
+  routeEnd: [number, number] | null   // в проекции EPSG:3857
+  routeGeometry: any | null
+
   // Действия
   setInitialized: (initialized: boolean) => void
   setLoading: (loading: boolean) => void
@@ -66,6 +72,13 @@ interface MapState {
   
   setMapView: (center: [number, number], zoom: number) => void
   setMapExtent: (extent: [number, number, number, number] | null) => void
+
+  // Навигация/маршрут
+  toggleRouting: (enabled?: boolean) => void
+  setRouteStart: (coord3857: [number, number] | null) => void
+  setRouteEnd: (coord3857: [number, number] | null) => void
+  setRouteGeometry: (geometry: any | null) => void
+  clearRoute: () => void
   
   // Утилиты
   reset: () => void
@@ -73,33 +86,22 @@ interface MapState {
 
 // Начальные видимые слои из конфигурации
 const getInitialVisibleLayers = () => {
-  const layers = [
-    // Базовые слои всегда включены
-    'podlozka',
-    'water',
-    'forest',
-    'parks',
-    'grassland',
-    'fields',
-    'beach',
-    'greenhouse',
-    'orchdeal',
-    'pitch',
-    'running_tracks',
-    'roads',
-    'railways',
-    'buildings_in_university',
-    'buildings_for_map',
-    
-    // Интерактивные слои по умолчанию
-    'main_building',
-    'university_buildings',
-    'dormitory_buildings',
-    'metro_stations',
-    'bus_stops'
-  ]
-  
-  return new Set(layers)
+  // Импортируем конфигурацию слоев
+  const { LAYERS_CONFIG } = require('@/config/layers')
+
+  const visibleLayers = new Set<string>()
+
+  // Добавляем все базовые слои (они всегда видимы)
+  Object.keys(LAYERS_CONFIG.base).forEach(layerName => {
+    visibleLayers.add(layerName)
+  })
+
+  // Добавляем все интерактивные слои (все видимы по умолчанию)
+  Object.keys(LAYERS_CONFIG.interactive).forEach(layerName => {
+    visibleLayers.add(layerName)
+  })
+
+  return visibleLayers
 }
 
 export const useMapStore = create<MapState>()(
@@ -120,6 +122,12 @@ export const useMapStore = create<MapState>()(
     
     userLocation: null,
     isLocating: false,
+
+    // Навигация/маршрут
+    isRouting: false,
+    routeStart: null,
+    routeEnd: null,
+    routeGeometry: null,
     
     center: [4180050.855075, 7525234.989304], // Центр университета
     zoom: 16,
@@ -175,30 +183,29 @@ export const useMapStore = create<MapState>()(
 
     toggleAllLayers: () => {
       set((state) => {
-        // Если все слои видимы, скрываем все интерактивные
-        // Если есть скрытые слои, показываем все
-        const interactiveLayers = [
-          'main_building', 'university_buildings', 'dormitory_buildings',
-          'lab_buildings', 'library_buildings', 'sport_buildings',
-          'museum_buildings', 'cafe_buildings',
-          'metro_stations', 'tram_stops', 'bus_stops', 'parking',
-          'cafe', 'atm', 'lab', 'museum', 'deanery', 'departments'
-        ]
-        
-        const visibleInteractiveLayers = interactiveLayers.filter(layer => 
+        const { LAYERS_CONFIG } = require('@/config/layers')
+
+        // Получаем все интерактивные слои из конфигурации
+        const allInteractiveLayers = Object.keys(LAYERS_CONFIG.interactive)
+        const allBaseLayers = Object.keys(LAYERS_CONFIG.base)
+
+        // Объединяем все слои (кроме базовых, которые всегда должны быть видимы)
+        const allTogglableLayers = [...allInteractiveLayers]
+
+        const visibleTogglableLayers = allTogglableLayers.filter(layer =>
           state.visibleLayers.has(layer)
         )
-        
+
         const newVisibleLayers = new Set(state.visibleLayers)
-        
-        if (visibleInteractiveLayers.length === interactiveLayers.length) {
-          // Все слои видимы - скрываем интерактивные
-          interactiveLayers.forEach(layer => newVisibleLayers.delete(layer))
+
+        if (visibleTogglableLayers.length === allTogglableLayers.length) {
+          // Все интерактивные слои видимы - скрываем их
+          allTogglableLayers.forEach(layer => newVisibleLayers.delete(layer))
         } else {
-          // Есть скрытые слои - показываем все
-          interactiveLayers.forEach(layer => newVisibleLayers.add(layer))
+          // Есть скрытые слои - показываем все интерактивные
+          allTogglableLayers.forEach(layer => newVisibleLayers.add(layer))
         }
-        
+
         return { visibleLayers: newVisibleLayers }
       })
     },
@@ -238,25 +245,20 @@ export const useMapStore = create<MapState>()(
     hideFloorPlan: () => {
       set((state) => {
         if (!state.floorPlan) return state
-        
+
+        const { LAYERS_CONFIG } = require('@/config/layers')
         const newVisibleLayers = new Set(state.visibleLayers)
-        
+
         // Скрываем все слои этажей
         state.floorPlan.availableFloors.forEach(floorInfo => {
           newVisibleLayers.delete(floorInfo.layerName)
         })
-        
-        // Показываем обратно обычные слои зданий (восстанавливаем видимость всех базовых слоев)
-        const defaultLayers = [
-          'main_building', 'university_buildings', 'dormitory_buildings',
-          'lab_buildings', 'library_buildings', 'sport_buildings',
-          'museum_buildings', 'cafe_buildings'
-        ]
-        
-        defaultLayers.forEach(layerName => {
+
+        // Показываем обратно обычные слои зданий (все интерактивные слои по умолчанию)
+        Object.keys(LAYERS_CONFIG.interactive).forEach(layerName => {
           newVisibleLayers.add(layerName)
         })
-        
+
         return {
           floorPlan: null,
           visibleLayers: newVisibleLayers
@@ -280,6 +282,22 @@ export const useMapStore = create<MapState>()(
       set({ extent })
     },
 
+    // Навигация/маршрут
+    toggleRouting: (enabled) => {
+      set((state) => ({
+        isRouting: enabled !== undefined ? enabled : !state.isRouting,
+        // При включении режима маршрута — сбрасываем текущий маршрут
+        routeStart: enabled ?? !state.isRouting ? null : state.routeStart,
+        routeEnd: enabled ?? !state.isRouting ? null : state.routeEnd,
+        routeGeometry: enabled ?? !state.isRouting ? null : state.routeGeometry,
+      }))
+    },
+
+    setRouteStart: (coord3857) => set({ routeStart: coord3857 }),
+    setRouteEnd: (coord3857) => set({ routeEnd: coord3857 }),
+    setRouteGeometry: (geometry) => set({ routeGeometry: geometry }),
+    clearRoute: () => set({ routeStart: null, routeEnd: null, routeGeometry: null }),
+
     reset: () => {
       set({
         isInitialized: false,
@@ -292,6 +310,11 @@ export const useMapStore = create<MapState>()(
         floorPlan: null,
         userLocation: null,
         isLocating: false,
+        // Навигация/маршрут
+        isRouting: false,
+        routeStart: null,
+        routeEnd: null,
+        routeGeometry: null,
         center: [4180050.855075, 7525234.989304],
         zoom: 16,
         extent: null,

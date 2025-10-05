@@ -15,7 +15,6 @@ import {
   GraduationCap,
   Train,
   MapPin,
-  Star,
   Plus
 } from 'lucide-react'
 
@@ -29,7 +28,6 @@ const POI_ICONS_CONFIG = {
   sport: { icon: Dumbbell, bg: '#51adf6' },
   museum: { icon: Landmark, bg: '#837575' },
   cafe: { icon: Coffee, bg: '#f99d97' },
-  main: { icon: Star, bg: '#667eea' },
   atm: { icon: DollarSign, bg: '#1E8449' },
   deanery: { icon: UserCheck, bg: '#B9770E' },
   departments: { icon: GraduationCap, bg: '#9b59b6' },

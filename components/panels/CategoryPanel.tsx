@@ -42,13 +42,6 @@ const CATEGORY_TABS = {
     icon: Coffee,
     color: '#e91e63',
     layers: ['cafe', 'atm', 'museum_buildings', 'cafe_buildings']
-  },
-  main: {
-    id: 'main',
-    name: 'Главное',
-    icon: Star,
-    color: '#ffc107',
-    layers: ['main_building', 'deanery', 'departments']
   }
 } as const
 
@@ -166,7 +159,7 @@ export function CategoryPanel({ isOpen }: CategoryPanelProps) {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex-1 min-w-0 max-w-[100px] px-2 py-4 flex flex-col items-center justify-center transition-all duration-200 ${
+                className={`flex-1 min-w-0 px-2 py-4 flex flex-col items-center justify-center transition-all duration-200 ${
                   activeTab === tab.id
                     ? 'bg-university-primary-dark text-white'
                     : 'text-gray-700 hover:bg-gray-100'

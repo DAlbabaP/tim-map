@@ -123,12 +123,215 @@ export function MapContainer() {
   // Состояние POI Menu
   const [poiMenuVisible, setPoiMenuVisible] = useState(false)
   const [poiMenuPosition, setPoiMenuPosition] = useState<[number, number] | null>(null)
+  const [poiMenuCoordinates, setPoiMenuCoordinates] = useState<[number, number] | null>(null) // Географические координаты
+  const poiMenuCoordinatesRef = useRef<[number, number] | null>(null) // Ref для использования в обработчиках
   const [poiMenuBuilding, setPoiMenuBuilding] = useState<any>(null)
   const [poiMenuBuildingLayer, setPoiMenuBuildingLayer] = useState('')
   const [poiMenuItems, setPoiMenuItems] = useState<any[]>([])
   // Геометрия активного здания для контроля закрытия поэтажного плана
   const [activeFloorGeometry, setActiveFloorGeometry] = useState<any>(null)
   const activeFloorGeometryRef = useRef<any>(null)
+
+  // Роутинг: ссылки на объекты маршрута
+  const routeSourceRef = useRef<any>(null)
+  const startFeatureRef = useRef<any>(null)
+  const endFeatureRef = useRef<any>(null)
+  const routeFeatureRef = useRef<any>(null)
+
+  // Создание слоя маршрута при необходимости (в т.ч. после hot-reload)
+  const ensureRouteLayer = async (map?: any) => {
+    const targetMap = map || mapInstance
+    if (!targetMap) return
+    if (routeSourceRef.current) return
+
+    const { Vector: VectorLayer } = await import('ol/layer')
+    const { Vector: VectorSource } = await import('ol/source')
+    const { Style, Stroke, Fill, Circle } = await import('ol/style')
+
+    const routeSource = new VectorSource()
+    routeSourceRef.current = routeSource
+
+    const style = (feature: any) => {
+      const geometry = feature.getGeometry()
+      const type = geometry?.getType?.()
+      if (type === 'LineString') {
+        return new Style({
+          stroke: new Stroke({ color: '#ff3b30', width: 5 })
+        })
+      }
+      const isStart = feature.get('role') === 'start'
+      return new Style({
+        image: new Circle({
+          radius: 7,
+          fill: new Fill({ color: isStart ? '#2ecc71' : '#e74c3c' }),
+          stroke: new Stroke({ color: '#ffffff', width: 2 })
+        })
+      })
+    }
+
+    const routeLayer = new VectorLayer({
+      source: routeSource,
+      style,
+      zIndex: 5000,
+      properties: { name: 'route_layer', interactive: false }
+    })
+    targetMap.addLayer(routeLayer)
+    console.log('🧭 Слой маршрута создан')
+  }
+
+  // Граф дорог: список узлов и смежность
+  const roadNodesRef = useRef<Array<[number, number]>>([])
+  const roadAdjacencyRef = useRef<Map<number, Array<{ to: number, weight: number }>>>(new Map())
+
+  // Утилиты для маршрутизации
+  const calculateDistance = (a: [number, number], b: [number, number]) => {
+    const dx = a[0] - b[0]
+    const dy = a[1] - b[1]
+    return Math.hypot(dx, dy)
+  }
+
+  const addGraphEdge = (fromIdx: number, toIdx: number) => {
+    if (fromIdx === toIdx) return
+    const nodes = roadNodesRef.current
+    const from = nodes[fromIdx]
+    const to = nodes[toIdx]
+    const w = calculateDistance(from, to)
+
+    const adj = roadAdjacencyRef.current
+    if (!adj.has(fromIdx)) adj.set(fromIdx, [])
+    if (!adj.has(toIdx)) adj.set(toIdx, [])
+    adj.get(fromIdx)!.push({ to: toIdx, weight: w })
+    adj.get(toIdx)!.push({ to: fromIdx, weight: w })
+  }
+
+  const getOrCreateNodeIndex = (coord: [number, number], nodeIndexMap: Map<string, number>) => {
+    const key = `${Math.round(coord[0])},${Math.round(coord[1])}`
+    const existing = nodeIndexMap.get(key)
+    if (existing !== undefined) return existing
+    const idx = roadNodesRef.current.length
+    roadNodesRef.current.push(coord)
+    nodeIndexMap.set(key, idx)
+    return idx
+  }
+
+  const buildRoadGraphFromGeoJSON = async () => {
+    try {
+      const response = await fetch('/data/infrastructure/roads.geojson')
+      if (!response.ok) {
+        console.warn('⚠️ Не удалось загрузить roads.geojson для графа маршрутизации')
+        return
+      }
+      const geojson = await response.json()
+      const { GeoJSON } = await import('ol/format')
+      const format = new GeoJSON()
+      const features: any[] = format.readFeatures(geojson, { featureProjection: 'EPSG:3857' }) as any
+
+      roadNodesRef.current = []
+      roadAdjacencyRef.current = new Map()
+      const nodeIndexMap = new Map<string, number>()
+
+      for (const f of features) {
+        const geom = f.getGeometry?.()
+        const type = geom?.getType?.()
+        if (!geom || !type) continue
+
+        if (type === 'LineString') {
+          const coords: [number, number][] = geom.getCoordinates()
+          let prevIdx: number | null = null
+          for (const c of coords) {
+            const idx = getOrCreateNodeIndex([c[0], c[1]], nodeIndexMap)
+            if (prevIdx !== null) addGraphEdge(prevIdx, idx)
+            prevIdx = idx
+          }
+        } else if (type === 'MultiLineString') {
+          const lines: [number, number][][] = geom.getCoordinates()
+          for (const line of lines) {
+            let prevIdx: number | null = null
+            for (const c of line) {
+              const idx = getOrCreateNodeIndex([c[0], c[1]], nodeIndexMap)
+              if (prevIdx !== null) addGraphEdge(prevIdx, idx)
+              prevIdx = idx
+            }
+          }
+        }
+      }
+
+      console.log(`🧭 Граф дорог построен: узлов=${roadNodesRef.current.length}`)
+    } catch (e) {
+      console.error('❌ Ошибка построения графа дорог:', e)
+    }
+  }
+
+  const findNearestNodeIndex = (coord: [number, number]) => {
+    let bestIdx = -1
+    let bestDist = Infinity
+    const nodes = roadNodesRef.current
+    for (let i = 0; i < nodes.length; i++) {
+      const d = calculateDistance(coord, nodes[i])
+      if (d < bestDist) {
+        bestDist = d
+        bestIdx = i
+      }
+    }
+    return bestIdx
+  }
+
+  const findPathAStar = (startIdx: number, endIdx: number) => {
+    const nodes = roadNodesRef.current
+    const adjacency = roadAdjacencyRef.current
+
+    const openSet = new Set<number>([startIdx])
+    const cameFrom = new Map<number, number>()
+    const gScore = new Map<number, number>()
+    const fScore = new Map<number, number>()
+
+    for (let i = 0; i < nodes.length; i++) {
+      gScore.set(i, Infinity)
+      fScore.set(i, Infinity)
+    }
+    gScore.set(startIdx, 0)
+    fScore.set(startIdx, calculateDistance(nodes[startIdx], nodes[endIdx]))
+
+    const getLowestF = () => {
+      let best = -1
+      let bestF = Infinity
+      for (const n of openSet) {
+        const f = fScore.get(n) ?? Infinity
+        if (f < bestF) { bestF = f; best = n }
+      }
+      return best
+    }
+
+    while (openSet.size > 0) {
+      const current = getLowestF()
+      if (current === -1) break
+      if (current === endIdx) {
+        // восстановление пути
+        const path: number[] = [current]
+        let c = current
+        while (cameFrom.has(c)) {
+          c = cameFrom.get(c)!
+          path.push(c)
+        }
+        path.reverse()
+        return path
+      }
+
+      openSet.delete(current)
+      const neighbors = adjacency.get(current) || []
+      for (const { to, weight } of neighbors) {
+        const tentative = (gScore.get(current) ?? Infinity) + weight
+        if (tentative < (gScore.get(to) ?? Infinity)) {
+          cameFrom.set(to, current)
+          gScore.set(to, tentative)
+          fScore.set(to, tentative + calculateDistance(nodes[to], nodes[endIdx]))
+          if (!openSet.has(to)) openSet.add(to)
+        }
+      }
+    }
+
+    return null
+  }
   
   const { 
     setInitialized, 
@@ -138,10 +341,32 @@ export function MapContainer() {
     visibleLayers,
     setFloorPlan
   } = useMapStore()
+
+  // Доступ к состоянию роутинга из стора через getState в местах, где нет реактивной зависимости
+  const store = useMapStore
   
   const { initializeSearchData } = useSearchStore()
   const { setInfoPanelOpen } = usePanelStore()
   const { checkIfBuilding } = usePoiSearch()
+
+  // Функция для обновления экранной позиции POI меню из географических координат
+  const updatePoiMenuPosition = (map: any, coords: [number, number]) => {
+    if (!map || !mapRef.current) return null
+    
+    try {
+      const pixel = map.getPixelFromCoordinate(coords)
+      if (!pixel) return null
+      
+      const rect = mapRef.current.getBoundingClientRect()
+      const screenX = rect.left + pixel[0]
+      const screenY = rect.top + pixel[1]
+      
+      return [screenX, screenY] as [number, number]
+    } catch (error) {
+      console.warn('Ошибка пересчета позиции POI меню:', error)
+      return null
+    }
+  }
 
   // Функция поиска POI внутри границ конкретного здания (геометрическое включение)
   const findPoisInBuilding = async (buildingFeature: any, mapInst: any) => {
@@ -328,8 +553,8 @@ export function MapContainer() {
         // Очистка контейнера
         mapRef.current.innerHTML = ''
 
-        // Создание карты
-        const map = new Map({
+        // Создание карты с настройками для немедленной загрузки тайлов
+        const mapOptions: any = {
           target: mapRef.current,
           layers: [], // Начинаем с пустого массива слоев
           view: new View({
@@ -339,8 +564,13 @@ export function MapContainer() {
             maxZoom: 22,
             extent: MAP_CONFIG?.extent
           }),
-          controls: [] // Убираем стандартные контролы
-        })
+          controls: [], // Убираем стандартные контролы
+          // Включаем загрузку тайлов во время анимации и взаимодействия
+          loadTilesWhileAnimating: true,
+          loadTilesWhileInteracting: true
+        }
+        
+        const map = new Map(mapOptions)
 
         if (!mounted) return
 
@@ -348,16 +578,140 @@ export function MapContainer() {
         const osmBase = new TileLayer({
           source: new XYZ({
             url: MAP_CONFIG.tileLayer.fallbackUrl,
-            crossOrigin: 'anonymous'
+            crossOrigin: 'anonymous',
+            // Настройки для более быстрой загрузки
+            transition: 0, // Убираем задержку fade-in эффекта
+            cacheSize: 2048 // Увеличиваем кэш
           }),
-          preload: Infinity,
+          preload: Infinity, // Предзагружаем тайлы для соседних уровней зума
           zIndex: MAP_Z_INDEX.BASE_LAYERS - 10,
           properties: { name: 'osm_base', interactive: false }
         })
         map.addLayer(osmBase)
 
+        // Слой маршрута (маркер старта, финиша и линия между ними)
+        {
+          const { Vector: VectorLayer } = await import('ol/layer')
+          const { Vector: VectorSource } = await import('ol/source')
+          const { Style, Stroke, Fill, Circle } = await import('ol/style')
+
+          const routeSource = new VectorSource()
+          routeSourceRef.current = routeSource
+
+          const style = (feature: any) => {
+            const geometry = feature.getGeometry()
+            const type = geometry?.getType?.()
+            if (type === 'LineString') {
+              return new Style({
+                stroke: new Stroke({ color: '#ff3b30', width: 4 })
+              })
+            }
+            // Для точек (старт/финиш)
+            const isStart = feature.get('role') === 'start'
+            return new Style({
+              image: new Circle({
+                radius: 6,
+                fill: new Fill({ color: isStart ? '#2ecc71' : '#e74c3c' }),
+                stroke: new Stroke({ color: '#ffffff', width: 2 })
+              })
+            })
+          }
+
+          const routeLayer = new VectorLayer({
+            source: routeSource,
+            style,
+            zIndex: 2500,
+            properties: { name: 'route_layer', interactive: false }
+          })
+          map.addLayer(routeLayer)
+        }
+
         // Обработка кликов по карте
         map.on('click', (event) => {
+          // Режим построения маршрута
+          const { isRouting, routeStart, routeEnd, setRouteStart, setRouteEnd, setRouteGeometry, clearRoute } = store.getState()
+          if (isRouting) {
+            // Гарантируем наличие слоя маршрута
+            ensureRouteLayer(map)
+            // Динамический импорт геометрий и фич
+            Promise.all([
+              import('ol/Feature'),
+              import('ol/geom')
+            ]).then(([FeatureModule, geom]) => {
+              const Feature = (FeatureModule as any).default
+              const { Point, LineString } = geom as any
+
+              // Если маршрут завершён и пользователь кликает снова — начинаем новый
+              if (routeStart && routeEnd) {
+                clearRoute()
+                if (routeSourceRef.current) routeSourceRef.current.clear()
+                startFeatureRef.current = null
+                endFeatureRef.current = null
+                routeFeatureRef.current = null
+              }
+
+              const nodes = roadNodesRef.current
+              if (!nodes || nodes.length === 0) {
+                console.warn('⚠️ Граф дорог не готов, используем прямую линию')
+              }
+
+              if (!store.getState().routeStart) {
+                // Ставим старт: привязываем к ближайшему узлу графа
+                const startNodeIdx = nodes.length ? findNearestNodeIndex(event.coordinate as [number, number]) : -1
+                const startCoord = startNodeIdx >= 0 ? nodes[startNodeIdx] : (event.coordinate as [number, number])
+                setRouteStart(startCoord as [number, number])
+                if (routeSourceRef.current) {
+                  const startF = new Feature({ geometry: new Point(startCoord) })
+                  startF.set('role', 'start')
+                  routeSourceRef.current.addFeature(startF)
+                  startFeatureRef.current = startF
+                }
+                console.log('🧭 Старт маршрута установлен', startCoord)
+              } else if (!store.getState().routeEnd) {
+                // Ставим финиш: привязываем к ближайшему узлу и строим путь по графу
+                const startCoord = store.getState().routeStart as [number, number]
+                const startIdx = nodes.length ? findNearestNodeIndex(startCoord) : -1
+                const endIdx = nodes.length ? findNearestNodeIndex(event.coordinate as [number, number]) : -1
+                const endCoord = endIdx >= 0 ? nodes[endIdx] : (event.coordinate as [number, number])
+                setRouteEnd(endCoord)
+
+                let routeCoords: [number, number][] | null = null
+                if (startIdx >= 0 && endIdx >= 0) {
+                  const path = findPathAStar(startIdx, endIdx)
+                  if (path && path.length > 1) {
+                    routeCoords = path.map((idx) => nodes[idx]) as [number, number][]
+                  } else {
+                    console.warn('⚠️ Не удалось найти путь по графу, используем прямую')
+                  }
+                }
+
+                if (!routeCoords) {
+                  routeCoords = [startCoord, endCoord]
+                }
+
+                if (routeSourceRef.current) {
+                  const endF = new Feature({ geometry: new Point(endCoord) })
+                  endF.set('role', 'end')
+                  routeSourceRef.current.addFeature(endF)
+                  endFeatureRef.current = endF
+
+                  const line = new LineString(routeCoords)
+                  setRouteGeometry(line)
+
+                  const lineF = new Feature({ geometry: line })
+                  routeSourceRef.current.addFeature(lineF)
+                  routeFeatureRef.current = lineF
+                }
+                console.log('🧭 Маршрут построен. Длина точек:', routeCoords.length)
+              }
+            }).catch(() => {
+              console.warn('Не удалось загрузить модули для построения маршрута')
+            })
+
+            // В режиме маршрута не выполняем обычную обработку клика
+            return
+          }
+
           // Если поэтажный план открыт и клик пришёл вне активного здания — закрываем
           const currentPlan = useMapStore.getState().floorPlan
           const activeGeom = activeFloorGeometryRef.current
@@ -369,6 +723,7 @@ export function MapContainer() {
               setActiveFloorGeometry(null)
               activeFloorGeometryRef.current = null
               setPoiMenuVisible(false)
+              setPoiMenuCoordinates(null)
             }
           }
           const features = map.getFeaturesAtPixel(event.pixel)
@@ -414,6 +769,7 @@ export function MapContainer() {
               if (isFloorPlanLayer) {
                 // Клик по комнате в поэтажном плане - не закрываем план, только скрываем POI menu
                 setPoiMenuVisible(false)
+                setPoiMenuCoordinates(null)
                 return
               }
 
@@ -512,13 +868,14 @@ export function MapContainer() {
                     findPoisInBuildingByName('korpus1', map, clickedBuildingGeometry).then((nearbyPois) => {
                       console.log(`🎯 Найдено POI в корпусе 1 принудительно:`, nearbyPois.length, nearbyPois)
                       if (nearbyPois.length > 0) {
-                        const pixel = event.pixel
-                        const rect = mapRef.current?.getBoundingClientRect()
-                        if (rect) {
-                          const screenX = rect.left + pixel[0]
-                          const screenY = rect.top + pixel[1]
-
-                          setPoiMenuPosition([screenX, screenY])
+                        // Сохраняем географические координаты клика
+                        const mapCoords = event.coordinate as [number, number]
+                        setPoiMenuCoordinates(mapCoords)
+                        
+                        // Вычисляем экранную позицию
+                        const screenPosition = updatePoiMenuPosition(map, mapCoords)
+                        if (screenPosition) {
+                          setPoiMenuPosition(screenPosition)
                           setPoiMenuBuilding(interactiveFeature)
                           setPoiMenuBuildingLayer(interactiveLayerName)
                           setPoiMenuItems(nearbyPois)
@@ -526,10 +883,12 @@ export function MapContainer() {
                         }
                       } else {
                         setPoiMenuVisible(false)
+                        setPoiMenuCoordinates(null)
                       }
                     }).catch((error) => {
                       console.error('Ошибка принудительного поиска POI для корпуса 1:', error)
                       setPoiMenuVisible(false)
+                      setPoiMenuCoordinates(null)
                     })
                     return // Выходим, чтобы не запускать обычный поиск
                   }
@@ -539,14 +898,14 @@ export function MapContainer() {
                   console.log(`🎯 Найдено POI в здании:`, nearbyPois.length, nearbyPois)
                   // Показываем POI меню если есть POI в здании
                   if (nearbyPois.length > 0) {
-                    // Конвертируем координаты клика в экранные
-                    const pixel = event.pixel
-                    const rect = mapRef.current?.getBoundingClientRect()
-                    if (rect) {
-                      const screenX = rect.left + pixel[0]
-                      const screenY = rect.top + pixel[1]
-
-                      setPoiMenuPosition([screenX, screenY])
+                    // Сохраняем географические координаты клика
+                    const mapCoords = event.coordinate as [number, number]
+                    setPoiMenuCoordinates(mapCoords)
+                    
+                    // Вычисляем экранную позицию
+                    const screenPosition = updatePoiMenuPosition(map, mapCoords)
+                    if (screenPosition) {
+                      setPoiMenuPosition(screenPosition)
                       setPoiMenuBuilding(interactiveFeature)
                       setPoiMenuBuildingLayer(interactiveLayerName)
                       setPoiMenuItems(nearbyPois)
@@ -554,10 +913,12 @@ export function MapContainer() {
                     }
                   } else {
                     setPoiMenuVisible(false)
+                    setPoiMenuCoordinates(null)
                   }
                 }).catch((error) => {
                   console.error('Ошибка поиска POI в здании:', error)
                   setPoiMenuVisible(false)
+                  setPoiMenuCoordinates(null)
                 })
 
                 // Если нет поэтажного плана - закрываем его
@@ -574,11 +935,13 @@ export function MapContainer() {
                 setActiveFloorGeometry(null)
                 activeFloorGeometryRef.current = null
                 setPoiMenuVisible(false)
+                setPoiMenuCoordinates(null)
               }
             } else {
               // Нет интерактивных объектов под курсором - плавно закрываем панели
               setInfoPanelOpen(false)
               setPoiMenuVisible(false)
+              setPoiMenuCoordinates(null)
 
               // Очищаем выбранную фичу с задержкой для анимации
               setTimeout(() => {
@@ -589,6 +952,7 @@ export function MapContainer() {
             // Клик по пустой области карты - плавно закрываем все панели
             setInfoPanelOpen(false)
             setPoiMenuVisible(false)
+            setPoiMenuCoordinates(null)
 
             // Закрываем поэтажный план при клике по карте
             const { hideFloorPlan } = useMapStore.getState()
@@ -632,6 +996,17 @@ export function MapContainer() {
           const target = map.getTarget()
           if (target && typeof target !== 'string') {
             target.style.cursor = hasInteractiveFeature ? 'pointer' : ''
+          }
+        })
+
+        // Обновление позиции POI меню при движении/зуме карты
+        // Используем postrender для плавного обновления во время анимации
+        map.on('postrender', () => {
+          if (poiMenuCoordinatesRef.current) {
+            const newScreenPosition = updatePoiMenuPosition(map, poiMenuCoordinatesRef.current)
+            if (newScreenPosition) {
+              setPoiMenuPosition(newScreenPosition)
+            }
           }
         })
 
@@ -1052,6 +1427,26 @@ export function MapContainer() {
     loadAllFloorLayers()
   }, [mapInstance, floorPlan])
 
+  // Синхронизация ref с состоянием координат
+  useEffect(() => {
+    poiMenuCoordinatesRef.current = poiMenuCoordinates
+  }, [poiMenuCoordinates])
+
+  // Эффект для обновления позиции POI меню при изменении размера окна
+  useEffect(() => {
+    if (!mapInstance || !poiMenuCoordinates || !poiMenuVisible) return
+
+    const handleResize = () => {
+      const newScreenPosition = updatePoiMenuPosition(mapInstance, poiMenuCoordinates)
+      if (newScreenPosition) {
+        setPoiMenuPosition(newScreenPosition)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [mapInstance, poiMenuCoordinates, poiMenuVisible])
+
   // Обработчики POI Menu
   const handlePoiItemClick = (id: string, layerName: string) => {
     // Найти и выбрать соответствующий объект
@@ -1098,6 +1493,8 @@ export function MapContainer() {
 
   const handlePoiMenuClose = () => {
     setPoiMenuVisible(false)
+    setPoiMenuCoordinates(null) // Очищаем географические координаты
+    poiMenuCoordinatesRef.current = null // Очищаем ref
   }
 
   return (

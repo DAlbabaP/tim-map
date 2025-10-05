@@ -195,7 +195,6 @@ export function InfoPanel({ isOpen }: InfoPanelProps) {
     </>
   )
 }
-
 // Компонент отображения поля
 interface FieldDisplayProps {
   label: string
