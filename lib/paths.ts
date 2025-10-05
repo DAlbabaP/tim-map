@@ -2,11 +2,8 @@
  * Утилита для формирования правильных путей с учетом basePath
  */
 
-// Функция для получения basePath во время выполнения
-function getBasePath(): string {
-  // В production используем /tim-map, в development - пустую строку
-  return process.env.NODE_ENV === 'production' ? '/tim-map' : ''
-}
+// Получаем basePath из переменной окружения Next.js
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || ''
 
 /**
  * Добавляет basePath к публичному пути
@@ -14,10 +11,9 @@ function getBasePath(): string {
  * @returns полный путь с учетом basePath
  */
 export function getPublicPath(path: string): string {
-  const basePath = getBasePath()
   // Убираем начальный слеш если есть
   const cleanPath = path.startsWith('/') ? path : `/${path}`
-  return `${basePath}${cleanPath}`
+  return `${BASE_PATH}${cleanPath}`
 }
 
 /**

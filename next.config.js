@@ -43,6 +43,11 @@ const nextConfig = {
   distDir: 'dist',
   basePath: process.env.NODE_ENV === 'production' ? '/tim-map' : '',
   assetPrefix: process.env.NODE_ENV === 'production' ? '/tim-map' : '',
+  
+  // Переменные окружения для клиента
+  env: {
+    NEXT_PUBLIC_BASE_PATH: process.env.NODE_ENV === 'production' ? '/tim-map' : '',
+  },
 }
 
 module.exports = nextConfig 

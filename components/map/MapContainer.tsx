@@ -216,8 +216,8 @@ export function MapContainer() {
 
   const buildRoadGraphFromGeoJSON = async () => {
     try {
-      const basePath = process.env.NODE_ENV === 'production' ? '/tim-map' : ''
-      const response = await fetch(`${basePath}/data/infrastructure/roads.geojson`)
+      const { getPublicPath } = await import('@/lib/paths')
+      const response = await fetch(getPublicPath('/data/infrastructure/roads.geojson'))
       if (!response.ok) {
         console.warn('⚠️ Не удалось загрузить roads.geojson для графа маршрутизации')
         return
@@ -1167,8 +1167,9 @@ export function MapContainer() {
                     const iconPath = getIconForLayer(layerName)
                     if (iconPath) {
                       // Используем иконку для POI и транспорта
+                      const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
                       styleOptions.image = new Icon({
-                        src: `/images/icons/${iconPath}`,
+                        src: `${basePath}/images/icons/${iconPath}`,
                         scale: 0.03,
                         anchor: [0.5, 1],
                         anchorXUnits: 'fraction',
@@ -1214,8 +1215,9 @@ export function MapContainer() {
                     const iconPath = getIconForLayer(layerName)
                     if (iconPath) {
                       // Используем иконку для POI и транспорта
+                      const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
                       styleOptions.image = new Icon({
-                        src: `/images/icons/${iconPath}`,
+                        src: `${basePath}/images/icons/${iconPath}`,
                         scale: 0.03,
                         anchor: [0.5, 1],
                         anchorXUnits: 'fraction',
